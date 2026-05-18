@@ -311,6 +311,7 @@
         <button class="btn" onclick="goStep(1)">← Назад</button>
         <button class="btn btn-primary" onclick="renderDocs()">⟳ Обнови преглед</button>
         <button class="btn btn-primary" style="background:#27500A;border-color:#27500A" onclick="renderDocs();setTimeout(()=>window.print(),350)">🖨 Печат — 2 екземпляра на лист</button>
+        <button class="btn btn-primary" style="background:#1A3F5C;border-color:#1A3F5C" onclick="saveDocsAsHTML()">⬇ Свали документите (HTML)</button>
         <button class="btn btn-primary" id="btn-confirm" style="background:#7B3F00;border-color:#7B3F00;display:none" onclick="confirmLeave()">✔ Потвърди и запази остатъка</button>
       </div>
     </div>
@@ -815,6 +816,51 @@ function renderDocs(){
     confirmBtn.style.display = 'none';
   }
   confirmStatus.style.display = 'none';
+}
+
+function saveDocsAsHTML() {
+  renderDocs();
+  const name = document.getElementById('e-name').value || 'служител';
+  const oNum = document.getElementById('o-num').value || '';
+  const oDate = document.getElementById('o-date').value || new Date().toISOString().slice(0,10);
+  const dateStr = fmtD(oDate).replace(/\./g,'-');
+  const filename = `Заповед_${name.split(' ')[0]}_${dateStr}.html`;
+
+  const printContent = document.getElementById('print-sheet').innerHTML;
+  const logoUri = LOGO_URI;
+
+  const html = `<!DOCTYPE html>
+<html lang="bg">
+<head>
+<meta charset="UTF-8">
+<title>Заповед и Заявление — ${name}</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: white; font-family: 'Times New Roman', Times, serif; }
+  @page { margin: 10mm; size: A4 portrait; }
+  @media screen {
+    body { padding: 20px; background: #F4F2ED; }
+    .sheet { background: white; max-width: 210mm; margin: 0 auto 20px; padding: 10mm; box-shadow: 0 2px 12px rgba(0,0,0,0.15); }
+    .no-screen { display: none; }
+    .print-btn { position: fixed; top: 16px; right: 16px; padding: 10px 20px;
+      background: #2C5F8A; color: white; border: none; border-radius: 8px;
+      font-size: 14px; font-weight: 500; cursor: pointer; font-family: Arial; z-index:100; }
+    .print-btn:hover { background: #1A3F5C; }
+  }
+</style>
+</head>
+<body>
+<button class="print-btn no-screen" onclick="window.print()">🖨 Печат</button>
+${printContent}
+</body>
+</html>`;
+
+  const blob = new Blob([html], { type: 'text/html;charset=utf-8' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = filename;
+  a.click();
+  showToast('⬇ Документът е свален: ' + filename);
 }
 
 let currentEmpIdx = null;
