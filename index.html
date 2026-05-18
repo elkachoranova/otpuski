@@ -303,9 +303,9 @@
     <div class="card no-print">
       <div class="card-title">Параметри на заповедта</div>
       <div class="grid3">
-        <div class="field"><label>Номер на заповед (РД-14-)</label><input type="text" id="o-num" placeholder="1115"/></div>
-        <div class="field"><label>Дата на заповедта</label><input type="date" id="o-date"/></div>
-        <div class="field"><label>Изготвил</label><input type="text" id="o-izg" value="ЕЧ/СТРЗ"/></div>
+        <div class="field"><label>Номер на заповед (РД-14-)</label><input type="text" id="o-num" placeholder="1115" oninput="renderDocs()"/></div>
+        <div class="field"><label>Дата на заповедта</label><input type="date" id="o-date" onchange="renderDocs()"/></div>
+        <div class="field"><label>Изготвил</label><input type="text" id="o-izg" value="ЕЧ/СТРЗ" oninput="renderDocs()"/></div>
       </div>
       <div style="display:flex;gap:10px;flex-wrap:wrap">
         <button class="btn" onclick="goStep(1)">← Назад</button>
@@ -937,7 +937,11 @@ function goStep(n){
   [0,1,2].forEach(i=>{ document.getElementById('step-'+i).style.display=i===n?'block':'none'; document.getElementById('sb'+i).className='step-btn'+(i===n?' active':i<n?' done':''); });
   if(n===1&&periods.length===0){periods.push({from:'',to:'',days:0});renderPeriods();}
   if(n===1) renderHolidays();
-  if(n===2)renderDocs();
+  // При стъпка 3 — само ако номерът вече е попълнен
+  if(n===2){
+    const oNum = document.getElementById('o-num').value;
+    if(oNum) renderDocs();
+  }
 }
 
 // Tab switching
