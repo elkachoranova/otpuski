@@ -619,7 +619,11 @@ const HOLIDAYS = new Set([
 function isWorkday(date) {
   const dw = date.getDay();
   if (dw === 0 || dw === 6) return false;
-  const key = date.toISOString().slice(0,10);
+  // Използваме локална дата вместо UTC за да избегнем часова зона
+  const y = date.getFullYear();
+  const m = String(date.getMonth()+1).padStart(2,'0');
+  const d = String(date.getDate()).padStart(2,'0');
+  const key = `${y}-${m}-${d}`;
   return !HOLIDAYS.has(key);
 }
 
