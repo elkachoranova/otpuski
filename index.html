@@ -245,7 +245,7 @@
   </div>
 
   <!-- Step 0 -->
-  <div id="step-0" style="display: block;">
+  <div id="step-0">
     <div class="card">
       <div class="card-title">Избор на служител</div>
       <div class="field"><label>Бърз избор от списъка</label>
@@ -260,18 +260,15 @@
     </div>
     <div class="card">
       <div class="card-title">Неизползван отпуск по години</div>
-      <div id="years-c"><div class="year-row"><div><label style="font-size:11px;color:var(--text2)">Година</label><input type="number" value="2025" min="2018" max="2030" onchange="empYears[0].y=+this.value;updEmpMetrics()"></div>
-    <div><label style="font-size:11px;color:var(--text2)">Неизп. дни</label><input type="number" value="3" min="0" onchange="empYears[0].n=+this.value;updEmpMetrics()"></div>
-    <div><label style="font-size:11px;color:var(--text2)">Полагаеми</label><input type="number" value="30" min="0" onchange="empYears[0].t=+this.value;updEmpMetrics()"></div>
-    <div style="margin-top:17px"><button class="btn btn-sm btn-danger" onclick="empYears.splice(0,1);renderYears();updEmpMetrics()">×</button></div></div><div class="year-row"><div><label style="font-size:11px;color:var(--text2)">Година</label><input type="number" value="2026" min="2018" max="2030" onchange="empYears[1].y=+this.value;updEmpMetrics()"></div>
-    <div><label style="font-size:11px;color:var(--text2)">Неизп. дни</label><input type="number" value="33" min="0" onchange="empYears[1].n=+this.value;updEmpMetrics()"></div>
-    <div><label style="font-size:11px;color:var(--text2)">Полагаеми</label><input type="number" value="33" min="0" onchange="empYears[1].t=+this.value;updEmpMetrics()"></div>
-    <div style="margin-top:17px"><button class="btn btn-sm btn-danger" onclick="empYears.splice(1,1);renderYears();updEmpMetrics()">×</button></div></div></div>
+      <div id="years-c"><div class="year-row"><div><label style="font-size:11px;color:var(--text2)">Година</label><input type="number" value="2026" min="2018" max="2030" onchange="empYears[0].y=+this.value;updEmpMetrics()"></div>
+    <div><label style="font-size:11px;color:var(--text2)">Неизп. дни</label><input type="number" value="0" min="0" onchange="empYears[0].n=+this.value;updEmpMetrics()"></div>
+    <div><label style="font-size:11px;color:var(--text2)">Полагаеми</label><input type="number" value="57" min="0" onchange="empYears[0].t=+this.value;updEmpMetrics()"></div>
+    <div style="margin-top:17px"><button class="btn btn-sm btn-danger" onclick="empYears.splice(0,1);renderYears();updEmpMetrics()">×</button></div></div></div>
       <button class="btn btn-sm no-print" onclick="addYear()" style="margin-bottom:14px">+ Добави година</button>
       <div id="emp-metrics" class="metrics">
-    <div class="metric"><div class="m-lbl">Общо неизп.</div><div class="m-val ok">36</div></div>
-    <div class="metric"><div class="m-lbl">Години</div><div class="m-val">2</div></div>
-    <div class="metric"><div class="m-lbl">Най-стара год.</div><div class="m-val">2025</div></div></div>
+    <div class="metric"><div class="m-lbl">Общо неизп.</div><div class="m-val danger">0</div></div>
+    <div class="metric"><div class="m-lbl">Години</div><div class="m-val">0</div></div>
+    <div class="metric"><div class="m-lbl">Най-стара год.</div><div class="m-val">2026</div></div></div>
     </div>
     <button class="btn btn-primary btn-block" onclick="goStep(1)">Напред →</button>
   </div>
@@ -1980,7 +1977,7 @@
 <div class="modal-overlay" id="emp-modal">
   <div class="modal">
     <div class="modal-title">
-      <span id="modal-title-text">Редактиране: АНИ ВЕСЕЛИНОВА ДИНКОВА-ДРУМЕВА</span>
+      <span id="modal-title-text">Редактиране: МИГЛЕНА МИТКОВА КЕХАЙОВА</span>
       <button class="close-btn" onclick="closeModal()">×</button>
     </div>
     <div class="field"><label>Три имена</label><input type="text" id="m-name" placeholder="ИВАН ПЕТРОВ ИВАНОВ"></div>
@@ -1994,10 +1991,14 @@
     </div>
     <div class="sec-hdr" style="margin-top:14px">Отпуск по години</div>
     <div id="m-years-c"><div class="edit-yr-row">
-      <div><label style="font-size:11px;color:var(--text2)">Година</label><input type="number" value="2026" min="2018" max="2035" onchange="modalYears[0].y=+this.value"></div>
-      <div><label style="font-size:11px;color:var(--text2)">Неизп. дни</label><input type="number" value="56" min="0" onchange="modalYears[0].n=+this.value"></div>
-      <div><label style="font-size:11px;color:var(--text2)">Полагаеми</label><input type="number" value="57" min="0" onchange="modalYears[0].t=+this.value"></div>
-      <div style="margin-top:17px"><button class="btn btn-sm btn-danger" onclick="modalYears.splice(0,1);renderModalYears()">×</button></div></div></div>
+      <div><label style="font-size:11px;color:var(--text2)">Година</label><input type="number" value="2025" min="2018" max="2035" onchange="modalYears[0].y=+this.value"></div>
+      <div><label style="font-size:11px;color:var(--text2)">Неизп. дни</label><input type="number" value="3" min="0" onchange="modalYears[0].n=+this.value"></div>
+      <div><label style="font-size:11px;color:var(--text2)">Полагаеми</label><input type="number" value="30" min="0" onchange="modalYears[0].t=+this.value"></div>
+      <div style="margin-top:17px"><button class="btn btn-sm btn-danger" onclick="modalYears.splice(0,1);renderModalYears()">×</button></div></div><div class="edit-yr-row">
+      <div><label style="font-size:11px;color:var(--text2)">Година</label><input type="number" value="2026" min="2018" max="2035" onchange="modalYears[1].y=+this.value"></div>
+      <div><label style="font-size:11px;color:var(--text2)">Неизп. дни</label><input type="number" value="33" min="0" onchange="modalYears[1].n=+this.value"></div>
+      <div><label style="font-size:11px;color:var(--text2)">Полагаеми</label><input type="number" value="33" min="0" onchange="modalYears[1].t=+this.value"></div>
+      <div style="margin-top:17px"><button class="btn btn-sm btn-danger" onclick="modalYears.splice(1,1);renderModalYears()">×</button></div></div></div>
     <button class="btn btn-sm" onclick="addModalYear()" style="margin-bottom:14px">+ Добави година</button>
     <div style="display:flex;gap:8px;margin-top:6px">
       <button class="btn" style="flex:1" onclick="closeModal()">Отказ</button>
@@ -2006,7 +2007,7 @@
   </div>
 </div>
 
-<div class="toast" id="toast">✔ Промените са запазени: АНИ ВЕСЕЛИНОВА ДИНКОВА-ДРУМЕВА</div>
+<div class="toast" id="toast">✔ Промените са запазени: МИГЛЕНА МИТКОВА КЕХАЙОВА</div>
 
 <script>
 
