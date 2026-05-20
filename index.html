@@ -300,12 +300,12 @@
 
   <!-- Step 2 -->
   <div id="step-2" style="display:none">
-    <div class="card no-print">
+    <div class="card no-print" style="position:relative;z-index:10">
       <div class="card-title">Параметри на заповедта</div>
       <div class="grid3">
-        <div class="field"><label>Номер на заповед (РД-14-)</label><input type="text" id="o-num" placeholder="1115"/></div>
-        <div class="field"><label>Дата на заповедта</label><input type="date" id="o-date" onchange="renderDocs()"/></div>
-        <div class="field"><label>Изготвил</label><input type="text" id="o-izg" value="ЕЧ/СТРЗ"/></div>
+        <div class="field"><label>Номер на заповед (РД-14-)</label><input type="text" id="o-num" placeholder="1115" style="position:relative;z-index:11"/></div>
+        <div class="field"><label>Дата на заповедта</label><input type="date" id="o-date" style="position:relative;z-index:11"/></div>
+        <div class="field"><label>Изготвил</label><input type="text" id="o-izg" value="ЕЧ/СТРЗ" style="position:relative;z-index:11"/></div>
       </div>
       <div style="display:flex;gap:10px;flex-wrap:wrap">
         <button class="btn" onclick="goStep(1)">← Назад</button>
