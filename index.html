@@ -261,13 +261,13 @@
     <div class="card">
       <div class="card-title">Неизползван отпуск по години</div>
       <div id="years-c"><div class="year-row"><div><label style="font-size:11px;color:var(--text2)">Година</label><input type="number" value="2026" min="2018" max="2030" onchange="empYears[0].y=+this.value;updEmpMetrics()"></div>
-    <div><label style="font-size:11px;color:var(--text2)">Неизп. дни</label><input type="number" value="57" min="0" onchange="empYears[0].n=+this.value;updEmpMetrics()"></div>
+    <div><label style="font-size:11px;color:var(--text2)">Неизп. дни</label><input type="number" value="0" min="0" onchange="empYears[0].n=+this.value;updEmpMetrics()"></div>
     <div><label style="font-size:11px;color:var(--text2)">Полагаеми</label><input type="number" value="57" min="0" onchange="empYears[0].t=+this.value;updEmpMetrics()"></div>
     <div style="margin-top:17px"><button class="btn btn-sm btn-danger" onclick="empYears.splice(0,1);renderYears();updEmpMetrics()">×</button></div></div></div>
       <button class="btn btn-sm no-print" onclick="addYear()" style="margin-bottom:14px">+ Добави година</button>
       <div id="emp-metrics" class="metrics">
-    <div class="metric"><div class="m-lbl">Общо неизп.</div><div class="m-val ok">57</div></div>
-    <div class="metric"><div class="m-lbl">Години</div><div class="m-val">1</div></div>
+    <div class="metric"><div class="m-lbl">Общо неизп.</div><div class="m-val danger">0</div></div>
+    <div class="metric"><div class="m-lbl">Години</div><div class="m-val">0</div></div>
     <div class="metric"><div class="m-lbl">Най-стара год.</div><div class="m-val">2026</div></div></div>
     </div>
     <button class="btn btn-primary btn-block" onclick="goStep(1)">Напред →</button>
@@ -877,8 +877,8 @@
       <td><button class="btn btn-sm" onclick="useForZayav(47)">Избери →</button></td></tr><tr data-name="лина абед али саид" data-sec="ПП с ЗНПР"><td style="color:var(--text3);font-family:var(--mono);font-size:11px">49</td>
       <td style="font-weight:500">ЛИНА АБЕД АЛИ САИД</td><td style="color:var(--text2)">старши учител ПЕ</td>
       <td><span style="font-size:11px;color:var(--text2)">ПП с ЗНПР</span></td>
-      <td style="font-family:var(--mono);font-size:12px;color:var(--text2)">2026: 54д</td>
-      <td><span class="badge badge-green">54 дни</span></td>
+      <td style="font-family:var(--mono);font-size:12px;color:var(--text2)">2026: 56д</td>
+      <td><span class="badge badge-green">56 дни</span></td>
       <td><button class="btn btn-sm" onclick="useForZayav(48)">Избери →</button></td></tr><tr data-name="маргрета веселинова гвоздева" data-sec="ПП с ЗНПР"><td style="color:var(--text3);font-family:var(--mono);font-size:11px">50</td>
       <td style="font-weight:500">МАРГРЕТА ВЕСЕЛИНОВА ГВОЗДЕВА</td><td style="color:var(--text2)">старши учител ПЕ</td>
       <td><span style="font-size:11px;color:var(--text2)">ПП с ЗНПР</span></td>
@@ -1658,13 +1658,13 @@
       <td style="white-space:nowrap">
         <button class="btn btn-sm" onclick="openEditModal(47)" style="margin-right:4px">✏️</button>
         <button class="btn btn-sm btn-danger" onclick="deleteEmployee(47)">🗑</button>
-      </td></tr><tr class="edit-tbl-row">
+      </td></tr><tr class="edit-tbl-row changed-row">
       <td style="color:var(--text3);font-family:var(--mono);font-size:11px">49</td>
       <td style="font-weight:500">ЛИНА АБЕД АЛИ САИД</td>
       <td style="color:var(--text2);font-size:12px">старши учител ПЕ</td>
       <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
-      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2026: 54д</td>
-      <td><span class="badge badge-green">54д</span></td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2026: 56д</td>
+      <td><span class="badge badge-green">56д</span></td>
       <td style="white-space:nowrap">
         <button class="btn btn-sm" onclick="openEditModal(48)" style="margin-right:4px">✏️</button>
         <button class="btn btn-sm btn-danger" onclick="deleteEmployee(48)">🗑</button>
@@ -1978,7 +1978,7 @@
       <td style="white-space:nowrap">
         <button class="btn btn-sm" onclick="openEditModal(79)" style="margin-right:4px">✏️</button>
         <button class="btn btn-sm btn-danger" onclick="deleteEmployee(79)">🗑</button>
-      </td></tr><tr class="edit-tbl-row changed-row">
+      </td></tr><tr class="edit-tbl-row">
       <td style="color:var(--text3);font-family:var(--mono);font-size:11px">81</td>
       <td style="font-weight:500">ЦВЕТЕЛИНА ЙОРДАНОВА ЕМИЛОВА</td>
       <td style="color:var(--text2);font-size:12px">Учител НЕ</td>
@@ -2236,7 +2236,7 @@
 <div class="modal-overlay" id="emp-modal">
   <div class="modal">
     <div class="modal-title">
-      <span id="modal-title-text">Редактиране: ДАФИНКА НИКОЛАЕВА ГЕРДЖИКОВА-ВИДО</span>
+      <span id="modal-title-text">Редактиране: ЛИНА АБЕД АЛИ САИД</span>
       <button class="close-btn" onclick="closeModal()">×</button>
     </div>
     <div class="field"><label>Три имена</label><input type="text" id="m-name" placeholder="ИВАН ПЕТРОВ ИВАНОВ"></div>
@@ -2250,14 +2250,10 @@
     </div>
     <div class="sec-hdr" style="margin-top:14px">Отпуск по години</div>
     <div id="m-years-c"><div class="edit-yr-row">
-      <div><label style="font-size:11px;color:var(--text2)">Година</label><input type="number" value="2025" min="2018" max="2035" onchange="modalYears[0].y=+this.value"></div>
-      <div><label style="font-size:11px;color:var(--text2)">Неизп. дни</label><input type="number" value="18" min="0" onchange="modalYears[0].n=+this.value"></div>
-      <div><label style="font-size:11px;color:var(--text2)">Полагаеми</label><input type="number" value="30" min="0" onchange="modalYears[0].t=+this.value"></div>
-      <div style="margin-top:17px"><button class="btn btn-sm btn-danger" onclick="modalYears.splice(0,1);renderModalYears()">×</button></div></div><div class="edit-yr-row">
-      <div><label style="font-size:11px;color:var(--text2)">Година</label><input type="number" value="2026" min="2018" max="2035" onchange="modalYears[1].y=+this.value"></div>
-      <div><label style="font-size:11px;color:var(--text2)">Неизп. дни</label><input type="number" value="30" min="0" onchange="modalYears[1].n=+this.value"></div>
-      <div><label style="font-size:11px;color:var(--text2)">Полагаеми</label><input type="number" value="30" min="0" onchange="modalYears[1].t=+this.value"></div>
-      <div style="margin-top:17px"><button class="btn btn-sm btn-danger" onclick="modalYears.splice(1,1);renderModalYears()">×</button></div></div></div>
+      <div><label style="font-size:11px;color:var(--text2)">Година</label><input type="number" value="2026" min="2018" max="2035" onchange="modalYears[0].y=+this.value"></div>
+      <div><label style="font-size:11px;color:var(--text2)">Неизп. дни</label><input type="number" value="54" min="0" onchange="modalYears[0].n=+this.value"></div>
+      <div><label style="font-size:11px;color:var(--text2)">Полагаеми</label><input type="number" value="61" min="0" onchange="modalYears[0].t=+this.value"></div>
+      <div style="margin-top:17px"><button class="btn btn-sm btn-danger" onclick="modalYears.splice(0,1);renderModalYears()">×</button></div></div></div>
     <button class="btn btn-sm" onclick="addModalYear()" style="margin-bottom:14px">+ Добави година</button>
     <div style="display:flex;gap:8px;margin-top:6px">
       <button class="btn" style="flex:1" onclick="closeModal()">Отказ</button>
@@ -2266,7 +2262,7 @@
   </div>
 </div>
 
-<div class="toast" id="toast">✔ Остатъкът на ЦВЕТЕЛИНА ЙОРДАНОВА ЕМИЛОВА е обновен</div>
+<div class="toast" id="toast">✔ Промените са запазени: ЛИНА АБЕД АЛИ САИД</div>
 
 <script>
 
@@ -2320,7 +2316,7 @@ const EMPLOYEES = [
   {name:'КРАСИМИРА ПЕНЧЕВА КИРЕВА',pos:'старши учител НЕ',sec:'ПП с ЗНПР',years:[{y:2026,n:57,t:57}]},
   {name:'ЛИЛЯНА АТАНАСОВА ДОЧЕВА',pos:'зам. директор УД',sec:'ПП с ЗНПР',years:[{y:2024,n:16,t:48},{y:2025,n:48,t:48},{y:2026,n:48,t:48}]},
   {name:'ЛИЛЯНА АТАНАСОВА ДОЧЕВА',pos:'старши учител ПЕ',sec:'ПП с ЗНПР',years:[{y:2024,n:13,t:48},{y:2025,n:48,t:48},{y:2026,n:48,t:48}]},
-  {name:'ЛИНА АБЕД АЛИ САИД',pos:'старши учител ПЕ',sec:'ПП с ЗНПР',years:[{y:2026,n:54,t:61}]},
+  {name:'ЛИНА АБЕД АЛИ САИД',pos:'старши учител ПЕ',sec:'ПП с ЗНПР',years:[{y:2026,n:56,t:63}]},
   {name:'МАРГРЕТА ВЕСЕЛИНОВА ГВОЗДЕВА',pos:'старши учител ПЕ',sec:'ПП с ЗНПР',years:[{y:2026,n:57,t:57}]},
   {name:'МАРИНА СТАНЧЕВА БАБАЧЕВА',pos:'старши учител ПЕ',sec:'ПП с ЗНПР',years:[{y:2025,n:1,t:57},{y:2026,n:57,t:57}]},
   {name:'МАРИЯ АНДРЕЕВА ВЕЛИНА',pos:'старши учител Н',sec:'ПП с ЗНПР',years:[{y:2025,n:44,t:61},{y:2026,n:61,t:61}]},
