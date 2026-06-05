@@ -792,8 +792,8 @@
       <td><button class="btn btn-sm" onclick="useForZayav(30)">Избери →</button></td></tr><tr data-name="звезделина ангелова гърбакова" data-sec="ПП с ЗНПР"><td style="color:var(--text3);font-family:var(--mono);font-size:11px">32</td>
       <td style="font-weight:500">ЗВЕЗДЕЛИНА АНГЕЛОВА ГЪРБАКОВА</td><td style="color:var(--text2)">старши учител ГЦОУД</td>
       <td><span style="font-size:11px;color:var(--text2)">ПП с ЗНПР</span></td>
-      <td style="font-family:var(--mono);font-size:12px;color:var(--text2)">2026: 56д</td>
-      <td><span class="badge badge-green">56 дни</span></td>
+      <td style="font-family:var(--mono);font-size:12px;color:var(--text2)">2026: 51д</td>
+      <td><span class="badge badge-green">51 дни</span></td>
       <td><button class="btn btn-sm" onclick="useForZayav(31)">Избери →</button></td></tr><tr data-name="зорница стоименова дамянова" data-sec="ПП с ЗНПР"><td style="color:var(--text3);font-family:var(--mono);font-size:11px">33</td>
       <td style="font-weight:500">ЗОРНИЦА СТОИМЕНОВА ДАМЯНОВА</td><td style="color:var(--text2)">старши учител ГЦОУД</td>
       <td><span style="font-size:11px;color:var(--text2)">ПП с ЗНПР</span></td>
@@ -1173,21 +1173,391 @@
         <option>Непедагогически персонал</option>
       </select>
       <button class="btn btn-primary btn-sm" onclick="openAddModal()">+ Нов служител</button>
-      <span class="tag" id="edit-count-tag">6 служители</span>
+      <span class="tag" id="edit-count-tag">104 служители</span>
     </div>
     <div style="overflow-x:auto;margin-top:12px">
       <table class="data-tbl" style="width:100%">
         <thead><tr><th>#</th><th>Три имена</th><th>Длъжност</th><th>Секция</th><th>Неизп. дни (по год.)</th><th>Остатък</th><th style="width:100px">Действия</th></tr></thead>
         <tbody id="edit-tbody"><tr class="edit-tbl-row">
-      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">32</td>
-      <td style="font-weight:500">ЗВЕЗДЕЛИНА АНГЕЛОВА ГЪРБАКОВА</td>
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">1</td>
+      <td style="font-weight:500">АНАСТАСИЯ ОГНЯНОВА МАНОВА</td>
+      <td style="color:var(--text2);font-size:12px">Учител ГЦОУД</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2026: 50д</td>
+      <td><span class="badge badge-green">50д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(0)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(0)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">2</td>
+      <td style="font-weight:500">АНГЕЛ СТОЯНОВ СТОЯНОВ</td>
+      <td style="color:var(--text2);font-size:12px">Учител в НЕ</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2025: 49д · 2026: 57д</td>
+      <td><span class="badge badge-amber">106д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(1)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(1)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">3</td>
+      <td style="font-weight:500">АНИ ВЕСЕЛИНОВА ДИНКОВА-ДРУМЕВА</td>
+      <td style="color:var(--text2);font-size:12px">Учител ГЦОУД</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2026: 55д</td>
+      <td><span class="badge badge-green">55д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(2)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(2)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">4</td>
+      <td style="font-weight:500">АНИТА АЛЕКСИЕВА ЧАУШЕВА</td>
+      <td style="color:var(--text2);font-size:12px">Учител ГЦОУД</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2025: 9д · 2026: 57д</td>
+      <td><span class="badge badge-green">66д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(3)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(3)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">5</td>
+      <td style="font-weight:500">БИЯН АБЕДАЛИ САИД</td>
+      <td style="color:var(--text2);font-size:12px">Учител ПЕ</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2026: 52д</td>
+      <td><span class="badge badge-green">52д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(4)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(4)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">6</td>
+      <td style="font-weight:500">ВЕЛИЧКО МИТКОВ ВЕЛИЧКОВ</td>
+      <td style="color:var(--text2);font-size:12px">Учител ПЕ</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2025: 8д · 2026: 57д</td>
+      <td><span class="badge badge-green">65д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(5)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(5)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">7</td>
+      <td style="font-weight:500">ВЕНЦИСЛАВА БЛАГОЕВА ЛУДОВА</td>
+      <td style="color:var(--text2);font-size:12px">Учител ГЦОУД</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2024: 6д · 2025: 57д · 2026: 57д</td>
+      <td><span class="badge badge-amber">120д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(6)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(6)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">8</td>
+      <td style="font-weight:500">ВЕСЕЛА БЛАГОВЕСТОВА ЛАЛОВА</td>
+      <td style="color:var(--text2);font-size:12px">Учител ГЦОУД</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2025: 38д · 2026: 61д</td>
+      <td><span class="badge badge-green">99д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(7)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(7)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">9</td>
+      <td style="font-weight:500">ВЕСЕЛИН ГЕОРГИЕВ ГАНЕВ</td>
+      <td style="color:var(--text2);font-size:12px">психолог</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2026: 52д</td>
+      <td><span class="badge badge-green">52д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(8)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(8)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">10</td>
+      <td style="font-weight:500">ГАБРИЕЛА ГЕОРГИЕВА СТАЙКОВА</td>
+      <td style="color:var(--text2);font-size:12px">Учител ПЕ</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2026: 59д</td>
+      <td><span class="badge badge-green">59д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(9)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(9)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">11</td>
+      <td style="font-weight:500">ГАБРИЕЛА ЕМИЛОВА КЕРЕЗИЕВА</td>
+      <td style="color:var(--text2);font-size:12px">Учител ГЦОУД</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2025: 1д · 2026: 57д</td>
+      <td><span class="badge badge-green">58д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(10)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(10)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">12</td>
+      <td style="font-weight:500">ГАЛЯ МАНОЛОВА ГАНЧЕВА</td>
+      <td style="color:var(--text2);font-size:12px">старши учител в ГЦОУД</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2025: 1д · 2026: 57д</td>
+      <td><span class="badge badge-green">58д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(11)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(11)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">13</td>
+      <td style="font-weight:500">ГЕОРГИ ЖИВКОВ ЙОНКОВ</td>
+      <td style="color:var(--text2);font-size:12px">Учител ПЕ</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2025: 0д · 2026: 57д</td>
+      <td><span class="badge badge-green">57д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(12)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(12)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">14</td>
+      <td style="font-weight:500">ГЕОРГИ ИЛИЕВ ИЛИЕВ</td>
+      <td style="color:var(--text2);font-size:12px">старши учител ПЕ</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2026: 54д</td>
+      <td><span class="badge badge-green">54д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(13)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(13)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">15</td>
+      <td style="font-weight:500">ГЕРГАНА КИРИЛОВА НИКОЛОВА</td>
+      <td style="color:var(--text2);font-size:12px">старши учител НЕ</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2026: 57д</td>
+      <td><span class="badge badge-green">57д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(14)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(14)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">16</td>
+      <td style="font-weight:500">ГЕРГАНА НИКОЛАЕВА ЛАЗАРОВА</td>
+      <td style="color:var(--text2);font-size:12px">старши учител НЕ</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2025: 11д · 2026: 61д</td>
+      <td><span class="badge badge-green">72д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(15)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(15)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">17</td>
+      <td style="font-weight:500">ГЕРГАНА НИКОЛОВА ПЕТРОВА</td>
+      <td style="color:var(--text2);font-size:12px">старши учител НЕ</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2026: 55д</td>
+      <td><span class="badge badge-green">55д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(16)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(16)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">18</td>
+      <td style="font-weight:500">ГЕРГАНА СТЕФАНОВА КУЗМИЧ</td>
       <td style="color:var(--text2);font-size:12px">старши учител ГЦОУД</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2026: 54д</td>
+      <td><span class="badge badge-green">54д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(17)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(17)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">19</td>
+      <td style="font-weight:500">ДЕНИЦА ВЛАДЛЕНОВА КИЧУКОВА</td>
+      <td style="color:var(--text2);font-size:12px">Учител НЕ</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2020: 33д · 2021: 62д · 2022: 62д · 2023: 62д · 2024: 62д · 2025: 62д · 2026: 62д</td>
+      <td><span class="badge badge-amber">405д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(18)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(18)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">20</td>
+      <td style="font-weight:500">ДЕСИСЛАВА ИВАНОВА ВЕСЕЛИНОВА</td>
+      <td style="color:var(--text2);font-size:12px">старши учител  ПЕ</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2025: 39д · 2026: 61д</td>
+      <td><span class="badge badge-green">100д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(19)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(19)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">21</td>
+      <td style="font-weight:500">ДИМА ПЕТРОВА ГОСПОДИНОВА</td>
+      <td style="color:var(--text2);font-size:12px">старши учител НЕ</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2026: 57д</td>
+      <td><span class="badge badge-green">57д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(20)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(20)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">22</td>
+      <td style="font-weight:500">ДИЯНА ТОДОРОВА ТОДОРОВА</td>
+      <td style="color:var(--text2);font-size:12px">старши учител ПЕ</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2025: 1д · 2026: 57д</td>
+      <td><span class="badge badge-green">58д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(21)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(21)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">23</td>
+      <td style="font-weight:500">ДОБРОМИР ДИМИТРОВ СТОЙНОВ</td>
+      <td style="color:var(--text2);font-size:12px">старши учител НЕ</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2025: 3д · 2026: 57д</td>
+      <td><span class="badge badge-green">60д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(22)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(22)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">24</td>
+      <td style="font-weight:500">ДРАГОМИР ПЕНКОВ КОСЕВ</td>
+      <td style="color:var(--text2);font-size:12px">Учител ГЦОУД</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2025: 7д · 2026: 57д</td>
+      <td><span class="badge badge-green">64д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(23)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(23)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">25</td>
+      <td style="font-weight:500">ЕЛЕНА ГЕОРГИЕВА БИЖЕВА</td>
+      <td style="color:var(--text2);font-size:12px">старши учител ПЕ</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2025: 3д · 2026: 57д</td>
+      <td><span class="badge badge-green">60д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(24)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(24)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">26</td>
+      <td style="font-weight:500">ЕЛЕНА ГЕОРГИЕВА ТАЛЕВА</td>
+      <td style="color:var(--text2);font-size:12px">старши учител НЕ</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2026: 57д</td>
+      <td><span class="badge badge-green">57д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(25)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(25)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">27</td>
+      <td style="font-weight:500">ЕЛЕНА ИВАНОВА ГЕОРГИЕВА</td>
+      <td style="color:var(--text2);font-size:12px">Учител ПЕ</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2025: 19д · 2026: 61д</td>
+      <td><span class="badge badge-green">80д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(26)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(26)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">28</td>
+      <td style="font-weight:500">ЕЛЕНА ЦВЕТАНОВА СТОЯНОВА</td>
+      <td style="color:var(--text2);font-size:12px">старши учител ГЦОУД</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2026: 57д</td>
+      <td><span class="badge badge-green">57д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(27)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(27)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">29</td>
+      <td style="font-weight:500">ЕЛИЦА ЙОРДАНОВА ЧУКАНСКА - ГЕОР</td>
+      <td style="color:var(--text2);font-size:12px">старши учител ПЕ</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2025: 10д · 2026: 57д</td>
+      <td><span class="badge badge-green">67д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(28)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(28)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">30</td>
+      <td style="font-weight:500">ЕМИЛИЯ КИРИЛОВА ДИМИТРОВА</td>
+      <td style="color:var(--text2);font-size:12px">старши учител НЕ</td>
       <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
       <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2026: 56д</td>
       <td><span class="badge badge-green">56д</span></td>
       <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(29)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(29)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">31</td>
+      <td style="font-weight:500">ЖИВКА КРАСИМИРОВА СТЕФАНОВА-ПЕТРО</td>
+      <td style="color:var(--text2);font-size:12px">Учител ПЕ</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2025: 19д · 2026: 61д</td>
+      <td><span class="badge badge-green">80д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(30)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(30)">🗑</button>
+      </td></tr><tr class="edit-tbl-row changed-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">32</td>
+      <td style="font-weight:500">ЗВЕЗДЕЛИНА АНГЕЛОВА ГЪРБАКОВА</td>
+      <td style="color:var(--text2);font-size:12px">старши учител ГЦОУД</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2026: 51д</td>
+      <td><span class="badge badge-green">51д</span></td>
+      <td style="white-space:nowrap">
         <button class="btn btn-sm" onclick="openEditModal(31)" style="margin-right:4px">✏️</button>
         <button class="btn btn-sm btn-danger" onclick="deleteEmployee(31)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">33</td>
+      <td style="font-weight:500">ЗОРНИЦА СТОИМЕНОВА ДАМЯНОВА</td>
+      <td style="color:var(--text2);font-size:12px">старши учител ГЦОУД</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2025: 1д · 2026: 57д</td>
+      <td><span class="badge badge-green">58д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(32)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(32)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">34</td>
+      <td style="font-weight:500">ИВА НИКОВА КАВЕКОВА</td>
+      <td style="color:var(--text2);font-size:12px">Учител ГЦОУД</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2025: 30д · 2026: 57д</td>
+      <td><span class="badge badge-green">87д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(33)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(33)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">35</td>
+      <td style="font-weight:500">ИВАН АТАНАСОВ БУХОВ</td>
+      <td style="color:var(--text2);font-size:12px">Учител ПЕ</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2025: 11д · 2026: 57д</td>
+      <td><span class="badge badge-green">68д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(34)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(34)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">36</td>
+      <td style="font-weight:500">ИВАН ДИЯНОВ ЙОРДЖЕВ</td>
+      <td style="color:var(--text2);font-size:12px">Учител ПЕ</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2025: 3д · 2026: 57д</td>
+      <td><span class="badge badge-green">60д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(35)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(35)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">37</td>
+      <td style="font-weight:500">ИВАН СТОИЛОВ ДЕРМЕНДЖИЕВ</td>
+      <td style="color:var(--text2);font-size:12px">зам. директор АСД</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2025: 3д · 2026: 30д</td>
+      <td><span class="badge badge-green">33д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(36)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(36)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">38</td>
+      <td style="font-weight:500">ИВАН СТОИЛОВ ДЕРМЕНДЖИЕВ</td>
+      <td style="color:var(--text2);font-size:12px">старши учител ГЦОУД</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2025: 12д · 2026: 57д</td>
+      <td><span class="badge badge-green">69д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(37)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(37)">🗑</button>
       </td></tr><tr class="edit-tbl-row">
       <td style="color:var(--text3);font-family:var(--mono);font-size:11px">39</td>
       <td style="font-weight:500">ИВЕЛИНА ХРИСТОВА ТРАЯНОВА</td>
@@ -1208,7 +1578,87 @@
       <td style="white-space:nowrap">
         <button class="btn btn-sm" onclick="openEditModal(39)" style="margin-right:4px">✏️</button>
         <button class="btn btn-sm btn-danger" onclick="deleteEmployee(39)">🗑</button>
-      </td></tr><tr class="edit-tbl-row changed-row">
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">41</td>
+      <td style="font-weight:500">ИРИНА ГЕОРГИЕВА ХРИСТОВА</td>
+      <td style="color:var(--text2);font-size:12px">старши учител НЕ</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2025: 6д · 2026: 57д</td>
+      <td><span class="badge badge-green">63д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(40)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(40)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">42</td>
+      <td style="font-weight:500">ИРИНА МАРКОВА ЧОЛАКОВА</td>
+      <td style="color:var(--text2);font-size:12px">Директор</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2025: 22д · 2026: 56д</td>
+      <td><span class="badge badge-green">78д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(41)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(41)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">43</td>
+      <td style="font-weight:500">ЙОВКА ДОНЧЕВА ПАВЛОВА</td>
+      <td style="color:var(--text2);font-size:12px">старши учител НЕ</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2026: 54д</td>
+      <td><span class="badge badge-green">54д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(42)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(42)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">44</td>
+      <td style="font-weight:500">ЙОРДАНКА ДИМИТРОВА КАЛФОВА</td>
+      <td style="color:var(--text2);font-size:12px">старши учител ПЕ</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2025: 14д · 2026: 61д</td>
+      <td><span class="badge badge-green">75д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(43)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(43)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">45</td>
+      <td style="font-weight:500">ЙОРДАНКА ИВАНОВА ДИМИТРОВА</td>
+      <td style="color:var(--text2);font-size:12px">педагогически съветник</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2026: 54д</td>
+      <td><span class="badge badge-green">54д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(44)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(44)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">46</td>
+      <td style="font-weight:500">КРАСИМИРА ПЕНЧЕВА КИРЕВА</td>
+      <td style="color:var(--text2);font-size:12px">старши учител НЕ</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2026: 57д</td>
+      <td><span class="badge badge-green">57д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(45)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(45)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">47</td>
+      <td style="font-weight:500">ЛИЛЯНА АТАНАСОВА ДОЧЕВА</td>
+      <td style="color:var(--text2);font-size:12px">зам. директор УД</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2024: 16д · 2025: 48д · 2026: 48д</td>
+      <td><span class="badge badge-amber">112д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(46)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(46)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">48</td>
+      <td style="font-weight:500">ЛИЛЯНА АТАНАСОВА ДОЧЕВА</td>
+      <td style="color:var(--text2);font-size:12px">старши учител ПЕ</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2024: 13д · 2025: 48д · 2026: 48д</td>
+      <td><span class="badge badge-amber">109д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(47)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(47)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
       <td style="color:var(--text3);font-family:var(--mono);font-size:11px">49</td>
       <td style="font-weight:500">ЛИНА АБЕД АЛИ САИД</td>
       <td style="color:var(--text2);font-size:12px">старши учител ПЕ</td>
@@ -1218,6 +1668,26 @@
       <td style="white-space:nowrap">
         <button class="btn btn-sm" onclick="openEditModal(48)" style="margin-right:4px">✏️</button>
         <button class="btn btn-sm btn-danger" onclick="deleteEmployee(48)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">50</td>
+      <td style="font-weight:500">МАРГРЕТА ВЕСЕЛИНОВА ГВОЗДЕВА</td>
+      <td style="color:var(--text2);font-size:12px">старши учител ПЕ</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2026: 57д</td>
+      <td><span class="badge badge-green">57д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(49)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(49)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">51</td>
+      <td style="font-weight:500">МАРИНА СТАНЧЕВА БАБАЧЕВА</td>
+      <td style="color:var(--text2);font-size:12px">старши учител ПЕ</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2025: 1д · 2026: 57д</td>
+      <td><span class="badge badge-green">58д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(50)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(50)">🗑</button>
       </td></tr><tr class="edit-tbl-row">
       <td style="color:var(--text3);font-family:var(--mono);font-size:11px">52</td>
       <td style="font-weight:500">МАРИЯ АНДРЕЕВА ВЕЛИНА</td>
@@ -1229,6 +1699,286 @@
         <button class="btn btn-sm" onclick="openEditModal(51)" style="margin-right:4px">✏️</button>
         <button class="btn btn-sm btn-danger" onclick="deleteEmployee(51)">🗑</button>
       </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">53</td>
+      <td style="font-weight:500">МАРИЯ БОНЕВА КАРАДЖОВА</td>
+      <td style="color:var(--text2);font-size:12px">старши учител НЕ</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2024: 8д · 2025: 59д · 2026: 59д</td>
+      <td><span class="badge badge-amber">126д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(52)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(52)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">54</td>
+      <td style="font-weight:500">МАРИЯ ГЕОРГИЕВА ЕНЕВСКА</td>
+      <td style="color:var(--text2);font-size:12px">Учител НЕ</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2025: 1д · 2026: 57д</td>
+      <td><span class="badge badge-green">58д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(53)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(53)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">55</td>
+      <td style="font-weight:500">МАРИЯ ГЕОРГИЕВА РУПСКА</td>
+      <td style="color:var(--text2);font-size:12px">Учител ГЦОУД</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2026: 54д</td>
+      <td><span class="badge badge-green">54д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(54)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(54)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">56</td>
+      <td style="font-weight:500">МАРИЯ РУМЕНОВА МЕНОВА</td>
+      <td style="color:var(--text2);font-size:12px">Учител ГЦОУД</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2025: 7д · 2026: 59д</td>
+      <td><span class="badge badge-green">66д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(55)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(55)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">57</td>
+      <td style="font-weight:500">МАРИЯ ТАСЕВА УЗУНОВА</td>
+      <td style="color:var(--text2);font-size:12px">старши учител НЕ</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2026: 57д</td>
+      <td><span class="badge badge-green">57д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(56)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(56)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">58</td>
+      <td style="font-weight:500">МАРИЯНА АНГЕЛОВА АНГЕЛОВА-ОСТРЕВ</td>
+      <td style="color:var(--text2);font-size:12px">старши учител НЕ</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2026: 55д</td>
+      <td><span class="badge badge-green">55д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(57)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(57)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">59</td>
+      <td style="font-weight:500">МЕЛИСА СЕВДИ ЗЕКИР</td>
+      <td style="color:var(--text2);font-size:12px">Учител ПЕ</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2026: 51д</td>
+      <td><span class="badge badge-green">51д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(58)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(58)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">60</td>
+      <td style="font-weight:500">НАДЕЖДА ПЕТРОВА ПЕНЧЕВА</td>
+      <td style="color:var(--text2);font-size:12px">Учител НЕ</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2026: 54д</td>
+      <td><span class="badge badge-green">54д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(59)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(59)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">61</td>
+      <td style="font-weight:500">НЕВЯНА ЙОРДАНОВА ПАНАЙОТОВА-ГЕОР</td>
+      <td style="color:var(--text2);font-size:12px">зам директор УД</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2026: 48д</td>
+      <td><span class="badge badge-green">48д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(60)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(60)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">62</td>
+      <td style="font-weight:500">НЕЛИ НИКОЛАЕВА КУБАТЕВА</td>
+      <td style="color:var(--text2);font-size:12px">Учител ПЕ</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2025: 2д · 2026: 57д</td>
+      <td><span class="badge badge-green">59д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(61)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(61)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">63</td>
+      <td style="font-weight:500">НЕСИБЕ РАСИМ ФЕЗОВА</td>
+      <td style="color:var(--text2);font-size:12px">Учител ПЕ</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2025: 5д · 2026: 61д</td>
+      <td><span class="badge badge-green">66д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(62)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(62)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">64</td>
+      <td style="font-weight:500">НОРА СТОЯНОВА ВАСИЛЕВА</td>
+      <td style="color:var(--text2);font-size:12px">Учител ГЦОУД</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2023: 3д · 2024: 50д · 2025: 61д · 2026: 61д</td>
+      <td><span class="badge badge-amber">175д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(63)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(63)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">65</td>
+      <td style="font-weight:500">ПЕТЯ ГЕОРГИЕВА КАБАСАКАЛОВА-СТ</td>
+      <td style="color:var(--text2);font-size:12px">Учител ПЕ</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2025: 16д · 2026: 57д</td>
+      <td><span class="badge badge-green">73д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(64)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(64)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">66</td>
+      <td style="font-weight:500">ПЕТЯ СТОЯНОВА ГЕОРГИЕВА</td>
+      <td style="color:var(--text2);font-size:12px">старши учител НЕ</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2026: 56д</td>
+      <td><span class="badge badge-green">56д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(65)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(65)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">67</td>
+      <td style="font-weight:500">РОСИЦА ИЛИЕВА ГЮМИШЕВА</td>
+      <td style="color:var(--text2);font-size:12px">старши учител ПЕ</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2026: 55д</td>
+      <td><span class="badge badge-green">55д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(66)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(66)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">68</td>
+      <td style="font-weight:500">СЕВДА АРСОВА СТАМБОЛОВА</td>
+      <td style="color:var(--text2);font-size:12px">Учител ПЕ</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2026: 55д</td>
+      <td><span class="badge badge-green">55д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(67)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(67)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">69</td>
+      <td style="font-weight:500">СИМОНА ЧАВДАРОВА ГЪЛЕВА</td>
+      <td style="color:var(--text2);font-size:12px">Учител ГЦОУД</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2026: 56д</td>
+      <td><span class="badge badge-green">56д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(68)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(68)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">70</td>
+      <td style="font-weight:500">СЛАВКА ЗЛАТЕВА КАНАЗИРСКА</td>
+      <td style="color:var(--text2);font-size:12px">старши учител ГЦОУД</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2026: 52д</td>
+      <td><span class="badge badge-green">52д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(69)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(69)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">71</td>
+      <td style="font-weight:500">СТЕФАНИ РУСЕВА НАНЧЕВА</td>
+      <td style="color:var(--text2);font-size:12px">Учител ПЕ</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2025: 10д · 2026: 57д</td>
+      <td><span class="badge badge-green">67д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(70)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(70)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">72</td>
+      <td style="font-weight:500">СТЕФКА ДИМИТРОВА БОЯДЖИЕВА</td>
+      <td style="color:var(--text2);font-size:12px">Учител НЕ</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2026: 56д</td>
+      <td><span class="badge badge-green">56д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(71)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(71)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">73</td>
+      <td style="font-weight:500">СТЕФКА КРУМОВА ГЕЧЕВА-ЛАМБРЕВА</td>
+      <td style="color:var(--text2);font-size:12px">старши учител ПЕ</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2026: 59д</td>
+      <td><span class="badge badge-green">59д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(72)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(72)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">74</td>
+      <td style="font-weight:500">СТЕФКА СИВКОВА МАНАХИЛОВА</td>
+      <td style="color:var(--text2);font-size:12px">Учител ПЕ</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2025: 43д · 2026: 57д</td>
+      <td><span class="badge badge-green">100д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(73)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(73)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">75</td>
+      <td style="font-weight:500">ТАНЯ ГЪЛЪБОВА ГЪЛЪБОВА</td>
+      <td style="color:var(--text2);font-size:12px">старши учител НЕ</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2025: 5д · 2026: 57д</td>
+      <td><span class="badge badge-green">62д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(74)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(74)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">76</td>
+      <td style="font-weight:500">ТАНЯ ДИМИТРОВА ВИДЕВА</td>
+      <td style="color:var(--text2);font-size:12px">Учител ГЦОУД</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2026: 57д</td>
+      <td><span class="badge badge-green">57д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(75)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(75)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">77</td>
+      <td style="font-weight:500">ТАТЯНА СТОЯНОВА СТОЯНОВА</td>
+      <td style="color:var(--text2);font-size:12px">Учител НЕ</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2026: 60д</td>
+      <td><span class="badge badge-green">60д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(76)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(76)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">78</td>
+      <td style="font-weight:500">ТЕОДОРА ИВАНОВА ТЕНЕВА</td>
+      <td style="color:var(--text2);font-size:12px">старши учител НЕ</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2026: 56д</td>
+      <td><span class="badge badge-green">56д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(77)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(77)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">79</td>
+      <td style="font-weight:500">ТИНКА ИВАНОВА РИШЕВА</td>
+      <td style="color:var(--text2);font-size:12px">Учител ГЦОУД</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2026: 54д</td>
+      <td><span class="badge badge-green">54д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(78)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(78)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">80</td>
+      <td style="font-weight:500">ЦВЕТА ПЕТКОВА ШОПОВА-КАЦАРОВА</td>
+      <td style="color:var(--text2);font-size:12px">старши учител ПЕ</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2026: 54д</td>
+      <td><span class="badge badge-green">54д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(79)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(79)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
       <td style="color:var(--text3);font-family:var(--mono);font-size:11px">81</td>
       <td style="font-weight:500">ЦВЕТЕЛИНА ЙОРДАНОВА ЕМИЛОВА</td>
       <td style="color:var(--text2);font-size:12px">Учител НЕ</td>
@@ -1238,6 +1988,236 @@
       <td style="white-space:nowrap">
         <button class="btn btn-sm" onclick="openEditModal(80)" style="margin-right:4px">✏️</button>
         <button class="btn btn-sm btn-danger" onclick="deleteEmployee(80)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">82</td>
+      <td style="font-weight:500">ЦВЕТОМИРА СТАНИСЛАВОВА САМОКОВЛИЕВА</td>
+      <td style="color:var(--text2);font-size:12px">старши учител ПЕ</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2025: 10д · 2026: 57д</td>
+      <td><span class="badge badge-green">67д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(81)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(81)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">83</td>
+      <td style="font-weight:500">ЮЛИЯ ДИМИТРОВА САВОВА</td>
+      <td style="color:var(--text2);font-size:12px">старши учител НЕ</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2025: 2д · 2026: 57д</td>
+      <td><span class="badge badge-green">59д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(82)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(82)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">84</td>
+      <td style="font-weight:500">ЮЛИЯ ЙОРДАНОВА ВАСИЛЕВА</td>
+      <td style="color:var(--text2);font-size:12px">старши учител НЕ</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2026: 54д</td>
+      <td><span class="badge badge-green">54д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(83)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(83)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">85</td>
+      <td style="font-weight:500">ЮЛИЯ ЮЛИАНОВА АЧАНОВА</td>
+      <td style="color:var(--text2);font-size:12px">Учител ГЦОУД</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2026: 57д</td>
+      <td><span class="badge badge-green">57д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(84)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(84)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">86</td>
+      <td style="font-weight:500">ДИМИТРИЙКА БОРИСОВА ИЛИЕВА</td>
+      <td style="color:var(--text2);font-size:12px">Ресурсен учител</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2026: 10д</td>
+      <td><span class="badge badge-green">10д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(85)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(85)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">87</td>
+      <td style="font-weight:500">МАРИАНА ЕМИЛОВА ЯНЧЕВА</td>
+      <td style="color:var(--text2);font-size:12px">Ресурсен учител</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2025: 5д · 2026: 57д</td>
+      <td><span class="badge badge-green">62д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(86)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(86)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">88</td>
+      <td style="font-weight:500">НИКОЛЕТА ГЕОРГИЕВА ТАЛЕВА-ЯНЕВА</td>
+      <td style="color:var(--text2);font-size:12px">Ресурсен учител</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2022: 50д · 2023: 57д · 2024: 57д · 2025: 62д · 2026: 62д</td>
+      <td><span class="badge badge-amber">288д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(87)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(87)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">89</td>
+      <td style="font-weight:500">СТОЙКА ГЕОРГИЕВА МАКЕДОНСКА-НИКОЛОВА</td>
+      <td style="color:var(--text2);font-size:12px">логопед</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2025: 8д · 2026: 61д</td>
+      <td><span class="badge badge-green">69д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(88)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(88)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">90</td>
+      <td style="font-weight:500">ГЕОРГИ ПЕТКОВ ПЕТКОВ</td>
+      <td style="color:var(--text2);font-size:12px">Работник по поддръжката</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2026: 25д</td>
+      <td><span class="badge badge-green">25д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(89)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(89)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">91</td>
+      <td style="font-weight:500">ГЕОРГИ ПЕТРОВ МЛАДЕНОВ</td>
+      <td style="color:var(--text2);font-size:12px">огняр</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2026: 29д</td>
+      <td><span class="badge badge-green">29д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(90)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(90)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">92</td>
+      <td style="font-weight:500">ДАФИНКА НИКОЛАЕВА ГЕРДЖИКОВА-ВИДО</td>
+      <td style="color:var(--text2);font-size:12px">касиер/домакин</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2025: 16д · 2026: 30д</td>
+      <td><span class="badge badge-green">46д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(91)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(91)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">93</td>
+      <td style="font-weight:500">ЕЛКА ХРИСТОВА ЧОРАНОВА</td>
+      <td style="color:var(--text2);font-size:12px">специалист ТРЗ</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2026: 28д</td>
+      <td><span class="badge badge-green">28д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(92)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(92)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">94</td>
+      <td style="font-weight:500">ЗОРКА СИВКОВА ЧАЕВА</td>
+      <td style="color:var(--text2);font-size:12px">чистач/хигиенист</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2025: 4д · 2026: 30д</td>
+      <td><span class="badge badge-green">34д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(93)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(93)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">95</td>
+      <td style="font-weight:500">ИВАНКА ХРИСТОВА АГУШЕВА</td>
+      <td style="color:var(--text2);font-size:12px">главен счетоводител</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2025: 23д · 2026: 34д</td>
+      <td><span class="badge badge-green">57д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(94)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(94)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">96</td>
+      <td style="font-weight:500">КАТЕРИНА ИВАНОВА СПАСОВА</td>
+      <td style="color:var(--text2);font-size:12px">чистач/хигиенист</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2025: 5д · 2026: 30д</td>
+      <td><span class="badge badge-green">35д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(95)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(95)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">97</td>
+      <td style="font-weight:500">КАТЯ КИРИЛОВА БОЦЕВА</td>
+      <td style="color:var(--text2);font-size:12px">чистач/хигиенист</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2025: 5д · 2026: 30д</td>
+      <td><span class="badge badge-green">35д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(96)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(96)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">98</td>
+      <td style="font-weight:500">МАРИЯ ДИМИТРОВА ЯНЕВА</td>
+      <td style="color:var(--text2);font-size:12px">чистач/хигиенист</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2025: 11д · 2026: 30д</td>
+      <td><span class="badge badge-green">41д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(97)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(97)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">99</td>
+      <td style="font-weight:500">МИГЛЕНА МИТКОВА КЕХАЙОВА</td>
+      <td style="color:var(--text2);font-size:12px">чистач/хигиенист</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2025: 2д · 2026: 33д</td>
+      <td><span class="badge badge-green">35д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(98)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(98)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">100</td>
+      <td style="font-weight:500">НИНА ГЕОРГИЕВА ИВАНОВА</td>
+      <td style="color:var(--text2);font-size:12px">чистач/хигиенист</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2025: 8д · 2026: 30д</td>
+      <td><span class="badge badge-green">38д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(99)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(99)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">101</td>
+      <td style="font-weight:500">ПЛАМЕНА ЛЮБОМИРОВА КРАСЕВА-НИКОЛОВ</td>
+      <td style="color:var(--text2);font-size:12px">технически сътрудник</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2026: 29д</td>
+      <td><span class="badge badge-green">29д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(100)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(100)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">102</td>
+      <td style="font-weight:500">СВЕТЛА ПЕТРОВА ГУЛЕВА</td>
+      <td style="color:var(--text2);font-size:12px">чистач/хигиенист</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2025: 5д · 2026: 30д</td>
+      <td><span class="badge badge-green">35д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(101)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(101)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">103</td>
+      <td style="font-weight:500">СЛАВКА МИРЧЕВА ДИМОВА</td>
+      <td style="color:var(--text2);font-size:12px">чистач/хигиенист</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2025: 0д · 2026: 34д</td>
+      <td><span class="badge badge-green">34д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(102)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(102)">🗑</button>
+      </td></tr><tr class="edit-tbl-row">
+      <td style="color:var(--text3);font-family:var(--mono);font-size:11px">104</td>
+      <td style="font-weight:500">ТЕОДОРА ЙОРДАНОВА ГАНЧОВСКА</td>
+      <td style="color:var(--text2);font-size:12px">библиотекар</td>
+      <td style="font-size:11px;color:var(--text2)">ПП с ЗНПР</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--text2)">2025: 12д · 2026: 30д</td>
+      <td><span class="badge badge-green">42д</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-sm" onclick="openEditModal(103)" style="margin-right:4px">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(103)">🗑</button>
       </td></tr></tbody>
       </table>
     </div>
@@ -1256,7 +2236,7 @@
 <div class="modal-overlay" id="emp-modal">
   <div class="modal">
     <div class="modal-title">
-      <span id="modal-title-text">Редактиране: ЛИНА АБЕД АЛИ САИД</span>
+      <span id="modal-title-text">Редактиране: ЗВЕЗДЕЛИНА АНГЕЛОВА ГЪРБАКОВА</span>
       <button class="close-btn" onclick="closeModal()">×</button>
     </div>
     <div class="field"><label>Три имена</label><input type="text" id="m-name" placeholder="ИВАН ПЕТРОВ ИВАНОВ"></div>
@@ -1271,8 +2251,8 @@
     <div class="sec-hdr" style="margin-top:14px">Отпуск по години</div>
     <div id="m-years-c"><div class="edit-yr-row">
       <div><label style="font-size:11px;color:var(--text2)">Година</label><input type="number" value="2026" min="2018" max="2035" onchange="modalYears[0].y=+this.value"></div>
-      <div><label style="font-size:11px;color:var(--text2)">Неизп. дни</label><input type="number" value="54" min="0" onchange="modalYears[0].n=+this.value"></div>
-      <div><label style="font-size:11px;color:var(--text2)">Полагаеми</label><input type="number" value="61" min="0" onchange="modalYears[0].t=+this.value"></div>
+      <div><label style="font-size:11px;color:var(--text2)">Неизп. дни</label><input type="number" value="56" min="0" onchange="modalYears[0].n=+this.value"></div>
+      <div><label style="font-size:11px;color:var(--text2)">Полагаеми</label><input type="number" value="57" min="0" onchange="modalYears[0].t=+this.value"></div>
       <div style="margin-top:17px"><button class="btn btn-sm btn-danger" onclick="modalYears.splice(0,1);renderModalYears()">×</button></div></div></div>
     <button class="btn btn-sm" onclick="addModalYear()" style="margin-bottom:14px">+ Добави година</button>
     <div style="display:flex;gap:8px;margin-top:6px">
@@ -1282,7 +2262,7 @@
   </div>
 </div>
 
-<div class="toast" id="toast">✔ Промените са запазени: ЛИНА АБЕД АЛИ САИД</div>
+<div class="toast" id="toast">✔ Промените са запазени: ЗВЕЗДЕЛИНА АНГЕЛОВА ГЪРБАКОВА</div>
 
 <script>
 
@@ -1319,7 +2299,7 @@ const EMPLOYEES = [
   {name:'ЕЛИЦА ЙОРДАНОВА ЧУКАНСКА - ГЕОР',pos:'старши учител ПЕ',sec:'ПП с ЗНПР',years:[{y:2025,n:10,t:57},{y:2026,n:57,t:57}]},
   {name:'ЕМИЛИЯ КИРИЛОВА ДИМИТРОВА',pos:'старши учител НЕ',sec:'ПП с ЗНПР',years:[{y:2026,n:56,t:57}]},
   {name:'ЖИВКА КРАСИМИРОВА СТЕФАНОВА-ПЕТРО',pos:'Учител ПЕ',sec:'ПП с ЗНПР',years:[{y:2025,n:19,t:61},{y:2026,n:61,t:61}]},
-  {name:'ЗВЕЗДЕЛИНА АНГЕЛОВА ГЪРБАКОВА',pos:'старши учител ГЦОУД',sec:'ПП с ЗНПР',years:[{y:2026,n:56,t:57}]},
+  {name:'ЗВЕЗДЕЛИНА АНГЕЛОВА ГЪРБАКОВА',pos:'старши учител ГЦОУД',sec:'ПП с ЗНПР',years:[{y:2026,n:51,t:57}]},
   {name:'ЗОРНИЦА СТОИМЕНОВА ДАМЯНОВА',pos:'старши учител ГЦОУД',sec:'ПП с ЗНПР',years:[{y:2025,n:1,t:57},{y:2026,n:57,t:57}]},
   {name:'ИВА НИКОВА КАВЕКОВА',pos:'Учител ГЦОУД',sec:'ПП с ЗНПР',years:[{y:2025,n:30,t:59},{y:2026,n:57,t:57}]},
   {name:'ИВАН АТАНАСОВ БУХОВ',pos:'Учител ПЕ',sec:'ПП с ЗНПР',years:[{y:2025,n:11,t:57},{y:2026,n:57,t:57}]},
