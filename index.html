@@ -1063,12 +1063,39 @@ async function saveDocsAsDocx() {
     ]})]
   });
 
+  function zapovedBlock() {
+    return [
+      logoRow(),
+      p(`З А П О В Е Д`, {center:true, bold:true, size:szT, after:40}),
+      p(`№ РД-14-${oNum}`, {center:true, bold:true, after:40}),
+      p(`гр. Пловдив, ${fmtD(oDate)} г.`, {center:true, bold:true, after:120}),
+      p(`На основание чл.173, ал.1 от Кодекса на труда и подадено заявление с вх. № ЧР-04-${zNum}/${fmtD(zDate)} г.`, {after:60}),
+      p(`Р А З Р Е Ш А В А М:`, {bold:true, size:26, after:60}),
+      p(`на ${name}`, {after:40}),
+      p(`на длъжност: ${pos} — ${zType}, както следва:`, {after:40}),
+      p(zReason || 'Редовен отпуск на основание чл. 155, ал. 5 от КТ', {bold:true, after:40}),
+      ...periodRows,
+      p(`Ползването на отпуската да започне от ${periods.length?fmtD(periods[0].from):'...........'} г.`, {before:40, after:40}),
+      p(`Неизползван платен отпуск по години:`, {bold:true, after:40}),
+      ostTable,
+      p(`Настоящата заповед се изготви в два еднообразни екземпляра, един за класьора "Заповеди на директора" и един за личното трудово досие на служителя.`, {size:szSm, before:80, after:40}),
+      p(`Специалист ТРЗ да доведе настоящата заповед до знанието на заинтересованото лице чрез изпращане на служебната му електронна поща.`, {size:szSm, after:100}),
+      twoCol(`Изготвил: ${oIzg}`, `ИРИНА ЧОЛАКОВА`, false, true),
+      twoCol(``, `Директор на ОУ "Димитър Талев"`, false, false),
+    ];
+  }
+
   const doc = new Document({
     sections: [
-      // Страница 1: Заповед
+      // Страница 1: Заповед × 2
       {
         properties: { page: { size:{width:11906,height:16838}, margin:{top:1134,bottom:1134,left:1134,right:1134} } },
-        children: zapoved,
+        children: [
+          ...zapovedBlock(),
+          cutLine,
+          p('', {after:40}),
+          ...zapovedBlock(),
+        ],
       },
       // Страница 2: Заявление × 2
       {
@@ -1076,7 +1103,7 @@ async function saveDocsAsDocx() {
         children: [
           ...zayavBlock(),
           cutLine,
-          p('', {after:60}),
+          p('', {after:40}),
           ...zayavBlock(),
         ],
       }
