@@ -934,9 +934,9 @@ async function saveDocsAsDocx() {
           ShadingType, convertInchesToTwip } = docx;
 
   const font = 'Times New Roman';
-  const sz = 24;    // 12pt
-  const szSm = 21;  // 10.5pt
-  const szT  = 28;  // 14pt заглавие
+  const sz   = 20;  // 10pt — компактен
+  const szSm = 18;  // 9pt
+  const szT  = 24;  // 12pt заглавие
 
   const border0    = { style: BorderStyle.NONE, size: 0, color: 'FFFFFF' };
   const noBorders  = { top:border0, bottom:border0, left:border0, right:border0 };
@@ -950,10 +950,10 @@ async function saveDocsAsDocx() {
   function logoRow() {
     return new Paragraph({
       alignment: AlignmentType.CENTER,
-      spacing: { before:0, after:80 },
+      spacing: { before:0, after:40 },
       children: [new ImageRun({
         data: logoBytes,
-        transformation: { width: 500, height: 60 },
+        transformation: { width: 480, height: 48 },
         type: 'png',
       })]
     });
@@ -962,7 +962,7 @@ async function saveDocsAsDocx() {
   function p(text, opts={}) {
     return new Paragraph({
       alignment: opts.center ? AlignmentType.CENTER : opts.right ? AlignmentType.RIGHT : AlignmentType.LEFT,
-      spacing: { before: opts.before||0, after: opts.after||60 },
+      spacing: { before: opts.before||0, after: opts.after||30 },
       children: [new TextRun({ text: text||'', font, size: opts.size||sz, bold:!!opts.bold, italics:!!opts.italics, color: opts.color||'000000' })]
     });
   }
@@ -984,12 +984,12 @@ async function saveDocsAsDocx() {
 
   // Остатък таблица
   const ostTblRows = rem.filter(y=>y.t>0).map(yr => new TableRow({ children: [
-    new TableCell({ borders:noBorders, width:{size:1800,type:WidthType.DXA}, children:[new Paragraph({spacing:{before:0,after:20},children:[new TextRun({text:`${yr.y} г.:`,font,size:sz})]})] }),
-    new TableCell({ borders:noBorders, width:{size:1800,type:WidthType.DXA}, children:[new Paragraph({spacing:{before:0,after:20},children:[new TextRun({text:`${yr.n} дни`,font,size:sz,bold:true})]})] }),
+    new TableCell({ borders:noBorders, width:{size:1800,type:WidthType.DXA}, children:[new Paragraph({spacing:{before:0,after:10},children:[new TextRun({text:`${yr.y} г.:`,font,size:sz})]})] }),
+    new TableCell({ borders:noBorders, width:{size:1800,type:WidthType.DXA}, children:[new Paragraph({spacing:{before:0,after:10},children:[new TextRun({text:`${yr.n} дни`,font,size:sz,bold:true})]})] }),
   ]}));
   ostTblRows.push(new TableRow({ children: [
-    new TableCell({ borders:noBorders, width:{size:1800,type:WidthType.DXA}, children:[new Paragraph({spacing:{before:0,after:20},children:[new TextRun({text:'Общо:',font,size:sz,bold:true})]})] }),
-    new TableCell({ borders:noBorders, width:{size:1800,type:WidthType.DXA}, children:[new Paragraph({spacing:{before:0,after:20},children:[new TextRun({text:`${ostTotal} дни`,font,size:sz,bold:true})]})] }),
+    new TableCell({ borders:noBorders, width:{size:1800,type:WidthType.DXA}, children:[new Paragraph({spacing:{before:0,after:10},children:[new TextRun({text:'Общо:',font,size:sz,bold:true})]})] }),
+    new TableCell({ borders:noBorders, width:{size:1800,type:WidthType.DXA}, children:[new Paragraph({spacing:{before:0,after:10},children:[new TextRun({text:`${ostTotal} дни`,font,size:sz,bold:true})]})] }),
   ]}));
   const ostTable = new Table({
     width:{size:3600,type:WidthType.DXA}, columnWidths:[1800,1800],
@@ -1032,19 +1032,19 @@ async function saveDocsAsDocx() {
       twoCol(`ДО`, `ДИРЕКТОР`, false, true),
       twoCol(`ДИРЕКТОРА`, `НА ОУ „ДИМИТЪР ТАЛЕВ"`, false, true),
       twoCol(`НА ОУ „ДИМИТЪР ТАЛЕВ"`, ``, false, false),
-      p('', {after:40}),
-      p(`З А Я В Л Е Н И Е`, {center:true, bold:true, size:szT, before:40, after:100}),
-      p(`от ${name}`, {after:40}),
-      p(`на длъжност: ${pos}`, {after:80}),
-      p(`УВАЖАЕМА ГОСПОЖО ДИРЕКТОР,`, {bold:true, after:60}),
-      p(`Моля да ми разрешите да ползвам ${zType}.`, {after:40}),
-      p(`Отпускът е за / във връзка: ${zReason||'........................'}`, {italics:true, after:60}),
+      p('', {after:20}),
+      p(`З А Я В Л Е Н И Е`, {center:true, bold:true, size:szT, before:20, after:60}),
+      p(`от ${name}`, {after:20}),
+      p(`на длъжност: ${pos}`, {after:40}),
+      p(`УВАЖАЕМА ГОСПОЖО ДИРЕКТОР,`, {bold:true, after:30}),
+      p(`Моля да ми разрешите да ползвам ${zType}.`, {after:20}),
+      p(`Отпускът е за / във връзка: ${zReason||'........................'}`, {italics:true, after:30}),
       ...periodZRows,
-      p(`Общо дни отпуск: ${totDays} дни`, {bold:true, before:60, after:120}),
+      p(`Общо дни отпуск: ${totDays} дни`, {bold:true, before:30, after:60}),
       twoCol(`С уважение: ........................`, ``, false, false),
       twoCol(`Дата: ${fmtD(zSign)} г.`, ``, false, false),
-      p('', {after:40}),
-      p(`Съгласувал относно организацията на образователно-възпитателния процес / трудовия:`, {italics:true, size:szSm, after:40}),
+      p('', {after:20}),
+      p(`Съгласувал относно организацията на образователно-възпитателния процес / трудовия:`, {italics:true, size:szSm, after:20}),
       p(zAgree, {size:szSm, after:0}),
     ];
   }
@@ -1066,20 +1066,20 @@ async function saveDocsAsDocx() {
   function zapovedBlock() {
     return [
       logoRow(),
-      p(`З А П О В Е Д`, {center:true, bold:true, size:szT, after:40}),
-      p(`№ РД-14-${oNum}`, {center:true, bold:true, after:40}),
-      p(`гр. Пловдив, ${fmtD(oDate)} г.`, {center:true, bold:true, after:120}),
-      p(`На основание чл.173, ал.1 от Кодекса на труда и подадено заявление с вх. № ЧР-04-${zNum}/${fmtD(zDate)} г.`, {after:60}),
-      p(`Р А З Р Е Ш А В А М:`, {bold:true, size:26, after:60}),
-      p(`на ${name}`, {after:40}),
-      p(`на длъжност: ${pos} — ${zType}, както следва:`, {after:40}),
-      p(zReason || 'Редовен отпуск на основание чл. 155, ал. 5 от КТ', {bold:true, after:40}),
+      p(`З А П О В Е Д`, {center:true, bold:true, size:szT, after:20}),
+      p(`№ РД-14-${oNum}`, {center:true, bold:true, after:20}),
+      p(`гр. Пловдив, ${fmtD(oDate)} г.`, {center:true, bold:true, after:60}),
+      p(`На основание чл.173, ал.1 от Кодекса на труда и подадено заявление с вх. № ЧР-04-${zNum}/${fmtD(zDate)} г.`, {after:30}),
+      p(`Р А З Р Е Ш А В А М:`, {bold:true, size:22, after:30}),
+      p(`на ${name}`, {after:20}),
+      p(`на длъжност: ${pos} — ${zType}, както следва:`, {after:20}),
+      p(zReason || 'Редовен отпуск на основание чл. 155, ал. 5 от КТ', {bold:true, after:20}),
       ...periodRows,
-      p(`Ползването на отпуската да започне от ${periods.length?fmtD(periods[0].from):'...........'} г.`, {before:40, after:40}),
-      p(`Неизползван платен отпуск по години:`, {bold:true, after:40}),
+      p(`Ползването на отпуската да започне от ${periods.length?fmtD(periods[0].from):'...........'} г.`, {before:20, after:20}),
+      p(`Неизползван платен отпуск по години:`, {bold:true, after:20}),
       ostTable,
-      p(`Настоящата заповед се изготви в два еднообразни екземпляра, един за класьора "Заповеди на директора" и един за личното трудово досие на служителя.`, {size:szSm, before:80, after:40}),
-      p(`Специалист ТРЗ да доведе настоящата заповед до знанието на заинтересованото лице чрез изпращане на служебната му електронна поща.`, {size:szSm, after:100}),
+      p(`Настоящата заповед се изготви в два еднообразни екземпляра, един за класьора "Заповеди на директора" и един за личното трудово досие на служителя.`, {size:szSm, before:40, after:20}),
+      p(`Специалист ТРЗ да доведе настоящата заповед до знанието на заинтересованото лице чрез изпращане на служебната му електронна поща.`, {size:szSm, after:60}),
       twoCol(`Изготвил: ${oIzg}`, `ИРИНА ЧОЛАКОВА`, false, true),
       twoCol(``, `Директор на ОУ "Димитър Талев"`, false, false),
     ];
@@ -1089,7 +1089,7 @@ async function saveDocsAsDocx() {
     sections: [
       // Страница 1: Заповед × 2
       {
-        properties: { page: { size:{width:11906,height:16838}, margin:{top:1134,bottom:1134,left:1134,right:1134} } },
+        properties: { page: { size:{width:11906,height:16838}, margin:{top:720,bottom:720,left:900,right:900} } },
         children: [
           ...zapovedBlock(),
           cutLine,
@@ -1099,7 +1099,7 @@ async function saveDocsAsDocx() {
       },
       // Страница 2: Заявление × 2
       {
-        properties: { page: { size:{width:11906,height:16838}, margin:{top:1134,bottom:1134,left:1134,right:1134} } },
+        properties: { page: { size:{width:11906,height:16838}, margin:{top:720,bottom:720,left:900,right:900} } },
         children: [
           ...zayavBlock(),
           cutLine,
