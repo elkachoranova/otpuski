@@ -911,17 +911,17 @@ async function saveDocsAsDocx() {
 
   renderDocs();
 
-  const name  = document.getElementById('e-name').value  || '........................';
-  const pos   = document.getElementById('e-pos').value   || '........................';
-  const zNum  = document.getElementById('z-num').value   || '...';
-  const zDate = document.getElementById('z-date').value;
-  const zType = document.getElementById('z-type').value;
+  const name    = document.getElementById('e-name').value  || '........................';
+  const pos     = document.getElementById('e-pos').value   || '........................';
+  const zNum    = document.getElementById('z-num').value   || '...';
+  const zDate   = document.getElementById('z-date').value;
+  const zType   = document.getElementById('z-type').value;
   const zReason = document.getElementById('z-reason').value || '';
   const zAgree  = document.getElementById('z-agree').value  || '........................';
   const zSign   = document.getElementById('z-sign').value;
-  const oNum  = document.getElementById('o-num').value   || '...';
-  const oDate = document.getElementById('o-date').value;
-  const oIzg  = document.getElementById('o-izg').value   || 'ЕЧ/СТРЗ';
+  const oNum    = document.getElementById('o-num').value   || '...';
+  const oDate   = document.getElementById('o-date').value;
+  const oIzg    = document.getElementById('o-izg').value   || 'ЕЧ/СТРЗ';
   const totDays = periods.reduce((s,p)=>s+p.days, 0);
 
   let rem = empYears.map(y=>({...y}));
@@ -930,61 +930,82 @@ async function saveDocsAsDocx() {
   const ostTotal = rem.reduce((s,y)=>s+y.n, 0);
 
   const { Document, Packer, Paragraph, TextRun, Table, TableRow, TableCell,
-          AlignmentType, BorderStyle, WidthType, PageBreak } = docx;
+          ImageRun, AlignmentType, BorderStyle, WidthType, PageBreak,
+          ShadingType, convertInchesToTwip } = docx;
 
   const font = 'Times New Roman';
-  const sz = 24; // 12pt
-  const szSm = 21; // 10.5pt
+  const sz = 24;    // 12pt
+  const szSm = 21;  // 10.5pt
+  const szT  = 28;  // 14pt заглавие
 
-  const border0 = { style: BorderStyle.NONE, size: 0, color: 'FFFFFF' };
-  const noBorders = { top:border0, bottom:border0, left:border0, right:border0 };
-  const thinBorder = { style: BorderStyle.SINGLE, size: 1, color: 'AAAAAA' };
-  const allBorders = { top:thinBorder, bottom:thinBorder, left:thinBorder, right:thinBorder };
+  const border0    = { style: BorderStyle.NONE, size: 0, color: 'FFFFFF' };
+  const noBorders  = { top:border0, bottom:border0, left:border0, right:border0 };
+  const dashBorder = { style: BorderStyle.DASHED, size: 6, color: '999999' };
+  const dashTop    = { top:dashBorder, bottom:border0, left:border0, right:border0 };
+
+  // Лого като ArrayBuffer от base64
+  const logoB64 = LOGO_URI.replace('data:image/png;base64,','');
+  const logoBytes = Uint8Array.from(atob(logoB64), c=>c.charCodeAt(0));
+
+  function logoRow() {
+    return new Paragraph({
+      alignment: AlignmentType.CENTER,
+      spacing: { before:0, after:80 },
+      children: [new ImageRun({
+        data: logoBytes,
+        transformation: { width: 500, height: 60 },
+        type: 'png',
+      })]
+    });
+  }
 
   function p(text, opts={}) {
     return new Paragraph({
       alignment: opts.center ? AlignmentType.CENTER : opts.right ? AlignmentType.RIGHT : AlignmentType.LEFT,
       spacing: { before: opts.before||0, after: opts.after||60 },
-      children: [new TextRun({ text: text||'', font, size: opts.size||sz, bold: !!opts.bold, italics: !!opts.italics })]
+      children: [new TextRun({ text: text||'', font, size: opts.size||sz, bold:!!opts.bold, italics:!!opts.italics, color: opts.color||'000000' })]
     });
   }
 
-  function twoCol(leftText, rightText, leftBold=false, rightBold=false) {
+  function twoCol(left, right, lBold=false, rBold=false, totalWidth=9026) {
+    const half = Math.floor(totalWidth/2);
     return new Table({
-      width: { size: 9026, type: WidthType.DXA },
-      columnWidths: [4513, 4513],
+      width: { size: totalWidth, type: WidthType.DXA },
+      columnWidths: [half, totalWidth-half],
       borders: { top:border0, bottom:border0, left:border0, right:border0, insideH:border0, insideV:border0 },
       rows: [new TableRow({ children: [
-        new TableCell({ borders: noBorders, width:{size:4513,type:WidthType.DXA},
-          children: [new Paragraph({ children: [new TextRun({text:leftText,font,size:sz,bold:leftBold})] })] }),
-        new TableCell({ borders: noBorders, width:{size:4513,type:WidthType.DXA},
-          children: [new Paragraph({ alignment:AlignmentType.RIGHT, children: [new TextRun({text:rightText,font,size:sz,bold:rightBold})] })] }),
+        new TableCell({ borders:noBorders, width:{size:half,type:WidthType.DXA},
+          children:[new Paragraph({spacing:{before:0,after:40}, children:[new TextRun({text:left,font,size:sz,bold:lBold})]})] }),
+        new TableCell({ borders:noBorders, width:{size:totalWidth-half,type:WidthType.DXA},
+          children:[new Paragraph({alignment:AlignmentType.RIGHT, spacing:{before:0,after:40}, children:[new TextRun({text:right,font,size:sz,bold:rBold})]})] }),
       ]})]
     });
   }
 
   // Остатък таблица
-  const ostRows = rem.filter(y=>y.t>0).map(yr => new TableRow({ children: [
-    new TableCell({ borders:noBorders, width:{size:2000,type:WidthType.DXA},
-      children:[new Paragraph({children:[new TextRun({text:`${yr.y} г.:`,font,size:sz})]})] }),
-    new TableCell({ borders:noBorders, width:{size:2000,type:WidthType.DXA},
-      children:[new Paragraph({children:[new TextRun({text:`${yr.n} дни`,font,size:sz,bold:true})]})] }),
+  const ostTblRows = rem.filter(y=>y.t>0).map(yr => new TableRow({ children: [
+    new TableCell({ borders:noBorders, width:{size:1800,type:WidthType.DXA}, children:[new Paragraph({spacing:{before:0,after:20},children:[new TextRun({text:`${yr.y} г.:`,font,size:sz})]})] }),
+    new TableCell({ borders:noBorders, width:{size:1800,type:WidthType.DXA}, children:[new Paragraph({spacing:{before:0,after:20},children:[new TextRun({text:`${yr.n} дни`,font,size:sz,bold:true})]})] }),
   ]}));
-  ostRows.push(new TableRow({ children: [
-    new TableCell({ borders:noBorders, width:{size:2000,type:WidthType.DXA},
-      children:[new Paragraph({children:[new TextRun({text:'Общо:',font,size:sz,bold:true})]})] }),
-    new TableCell({ borders:noBorders, width:{size:2000,type:WidthType.DXA},
-      children:[new Paragraph({children:[new TextRun({text:`${ostTotal} дни`,font,size:sz,bold:true})]})] }),
+  ostTblRows.push(new TableRow({ children: [
+    new TableCell({ borders:noBorders, width:{size:1800,type:WidthType.DXA}, children:[new Paragraph({spacing:{before:0,after:20},children:[new TextRun({text:'Общо:',font,size:sz,bold:true})]})] }),
+    new TableCell({ borders:noBorders, width:{size:1800,type:WidthType.DXA}, children:[new Paragraph({spacing:{before:0,after:20},children:[new TextRun({text:`${ostTotal} дни`,font,size:sz,bold:true})]})] }),
   ]}));
-  const ostTable = new Table({ width:{size:4000,type:WidthType.DXA}, columnWidths:[2000,2000],
+  const ostTable = new Table({
+    width:{size:3600,type:WidthType.DXA}, columnWidths:[1800,1800],
     borders:{top:border0,bottom:border0,left:border0,right:border0,insideH:border0,insideV:border0},
-    rows: ostRows });
+    rows: ostTblRows
+  });
 
-  const periodRows = periods.map(pr => p(`от ${fmtD(pr.from)} г. до ${fmtD(pr.to)} г. включително, ${pr.days} дни`));
+  const periodRows  = periods.map(pr => p(`от ${fmtD(pr.from)} г. до ${fmtD(pr.to)} г. включително, ${pr.days} дни`, {after:40}));
+  const periodZRows = periods.map(pr => p(`считано от ${fmtD(pr.from)} г. до ${fmtD(pr.to)} г. вкл., ${pr.days} дни`, {after:40}));
 
-  // === ЗАПОВЕД ===
+  // ═══════════════════════════════
+  // СТРАНИЦА 1: ЗАПОВЕД (1 екз.)
+  // ═══════════════════════════════
   const zapoved = [
-    p(`З А П О В Е Д`, {center:true, bold:true, size:28, before:0, after:80}),
+    logoRow(),
+    p(`З А П О В Е Д`, {center:true, bold:true, size:szT, after:40}),
     p(`№ РД-14-${oNum}`, {center:true, bold:true, after:40}),
     p(`гр. Пловдив, ${fmtD(oDate)} г.`, {center:true, bold:true, after:160}),
     p(`На основание чл.173, ал.1 от Кодекса на труда и подадено заявление с вх. № ЧР-04-${zNum}/${fmtD(zDate)} г.`, {after:80}),
@@ -1002,36 +1023,64 @@ async function saveDocsAsDocx() {
     twoCol(``, `Директор на ОУ "Димитър Талев"`, false, false),
   ];
 
-  // === ЗАЯВЛЕНИЕ ===
-  const periodZRows = periods.map(pr => p(`считано от ${fmtD(pr.from)} г. до ${fmtD(pr.to)} г. вкл., ${pr.days} дни`));
+  // ═══════════════════════════════════════════════════════
+  // СТРАНИЦА 2: ЗАЯВЛЕНИЕ × 2 на един лист
+  // ═══════════════════════════════════════════════════════
+  function zayavBlock() {
+    return [
+      twoCol(`Вх. № ЧР-04-${zNum} / ${fmtD(zDate)} г.`, `РАЗРЕШАВАМ:`, false, true),
+      twoCol(`ДО`, `ДИРЕКТОР`, false, true),
+      twoCol(`ДИРЕКТОРА`, `НА ОУ „ДИМИТЪР ТАЛЕВ"`, false, true),
+      twoCol(`НА ОУ „ДИМИТЪР ТАЛЕВ"`, ``, false, false),
+      p('', {after:40}),
+      p(`З А Я В Л Е Н И Е`, {center:true, bold:true, size:szT, before:40, after:100}),
+      p(`от ${name}`, {after:40}),
+      p(`на длъжност: ${pos}`, {after:80}),
+      p(`УВАЖАЕМА ГОСПОЖО ДИРЕКТОР,`, {bold:true, after:60}),
+      p(`Моля да ми разрешите да ползвам ${zType}.`, {after:40}),
+      p(`Отпускът е за / във връзка: ${zReason||'........................'}`, {italics:true, after:60}),
+      ...periodZRows,
+      p(`Общо дни отпуск: ${totDays} дни`, {bold:true, before:60, after:120}),
+      twoCol(`С уважение: ........................`, ``, false, false),
+      twoCol(`Дата: ${fmtD(zSign)} г.`, ``, false, false),
+      p('', {after:40}),
+      p(`Съгласувал относно организацията на образователно-възпитателния процес / трудовия:`, {italics:true, size:szSm, after:40}),
+      p(zAgree, {size:szSm, after:0}),
+    ];
+  }
 
-  const zayavlenie = [
-    new Paragraph({ children: [new PageBreak()] }),
-    twoCol(`Вх. № ЧР-04-${zNum} / ${fmtD(zDate)} г.`, `РАЗРЕШАВАМ:`, false, true),
-    twoCol(`ДО`, `ДИРЕКТОР`, false, true),
-    twoCol(`ДИРЕКТОРА`, `НА ОУ „ДИМИТЪР ТАЛЕВ"`, false, true),
-    twoCol(`НА ОУ „ДИМИТЪР ТАЛЕВ"`, ``, false, false),
-    p(''),
-    p(`З А Я В Л Е Н И Е`, {center:true, bold:true, size:28, before:80, after:120}),
-    p(`от ${name}`, {after:40}),
-    p(`на длъжност: ${pos}`, {after:100}),
-    p(`УВАЖАЕМА ГОСПОЖО ДИРЕКТОР,`, {bold:true, after:80}),
-    p(`Моля да ми разрешите да ползвам ${zType}.`, {after:40}),
-    p(`Отпускът е за / във връзка: ${zReason||'........................'}`, {italics:true, after:60}),
-    ...periodZRows,
-    p(`Общо дни отпуск: ${totDays} дни`, {bold:true, before:80, after:160}),
-    twoCol(`С уважение: ........................`, ``, false, false),
-    twoCol(`Дата: ${fmtD(zSign)} г.`, ``, false, false),
-    p(''),
-    p(`Съгласувал относно организацията на образователно-възпитателния процес / трудовия:`, {italics:true, size:szSm, before:80, after:40}),
-    p(zAgree, {size:szSm}),
-  ];
+  // Разделителна пунктирана линия между двата екземпляра
+  const cutLine = new Table({
+    width: { size: 9026, type: WidthType.DXA },
+    columnWidths: [9026],
+    borders: { top:dashBorder, bottom:border0, left:border0, right:border0, insideH:border0, insideV:border0 },
+    rows: [new TableRow({ children: [
+      new TableCell({ borders:dashTop, width:{size:9026,type:WidthType.DXA},
+        children:[new Paragraph({alignment:AlignmentType.CENTER, spacing:{before:0,after:0},
+          children:[new TextRun({text:'✂', font:'Arial', size:16, color:'999999'})]
+        })]
+      })
+    ]})]
+  });
 
   const doc = new Document({
-    sections: [{
-      properties: { page: { size:{width:11906,height:16838}, margin:{top:1134,bottom:1134,left:1134,right:1134} } },
-      children: [...zapoved, ...zayavlenie]
-    }]
+    sections: [
+      // Страница 1: Заповед
+      {
+        properties: { page: { size:{width:11906,height:16838}, margin:{top:1134,bottom:1134,left:1134,right:1134} } },
+        children: zapoved,
+      },
+      // Страница 2: Заявление × 2
+      {
+        properties: { page: { size:{width:11906,height:16838}, margin:{top:1134,bottom:1134,left:1134,right:1134} } },
+        children: [
+          ...zayavBlock(),
+          cutLine,
+          p('', {after:60}),
+          ...zayavBlock(),
+        ],
+      }
+    ]
   });
 
   const buffer = await Packer.toBlob(doc);
