@@ -2354,13 +2354,22 @@ function renderDocs(){
   const perZHtml=periods.map(p=>`<p style="margin:2px 0">считано от ${fmtD(p.from)} г. до ${fmtD(p.to)} г. вкл., ${p.days} дни</p>`).join('');
   document.getElementById('zayav-out').innerHTML=`
     <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:14px">
-      <div>Вх. № ЧР-04-${zNum} / ${fmtD(zDate)} г.</div>
-      <div style="text-align:right"><b>РАЗРЕШАВАМ:</b><br><b>ДИРЕКТОР НА ОУ „ДИМИТЪР ТАЛЕВ"</b></div>
+      <div style="line-height:1.8">
+        <div>Вх. № ЧР-04-${zNum} / ${fmtD(zDate)} г.</div>
+        <div style="margin-top:6px"><b>ДО</b><br><b>ДИРЕКТОРА</b><br><b>НА ОУ „ДИМИТЪР ТАЛЕВ"</b></div>
+        <div style="margin-top:4px">гр. Пловдив</div>
+      </div>
+      <div style="text-align:right;line-height:1.8">
+        <b>РАЗРЕШАВАМ:</b><br>
+        <b>ДИРЕКТОР</b><br>
+        <b>НА ОУ „ДИМИТЪР ТАЛЕВ"</b><br>
+        <span style="font-size:11px">гр. Пловдив</span><br>
+        <br>................................
+      </div>
     </div>
-    <p style="text-align:center"><b>ДО ДИРЕКТОРА НА ОУ „ДИМИТЪР ТАЛЕВ"</b></p>
     <p style="text-align:center;font-size:16px;font-weight:bold;letter-spacing:0.12em;margin:12px 0">З А Я В Л Е Н И Е</p>
     <p>от <b>${name}</b>, на длъжност: <b>${pos}</b></p>
-    <p><b>Уважаема госпожо Директор,</b></p>
+    <p><b>УВАЖАЕМА ГОСПОЖО ДИРЕКТОР,</b></p>
     <p>Моля да ми разрешите да ползвам <b>${zType}</b>.</p>
     <p><em>Отпускът е за / във връзка: ${zReason||'........................'}</em></p>
     ${perZHtml}
@@ -2404,12 +2413,13 @@ function renderDocs(){
         <div style="display:flex;justify-content:space-between;align-items:flex-start;font-size:12px;margin-bottom:6px">
           <div style="line-height:1.7">
             <div>Вх. № ЧР-04-${zNum} / ${fmtD(zDate)} г.</div>
-            <div style="margin-top:4px"><b>ДО</b><br><b>ДИРЕКТОРА</b><br><b>НА ОУ „ДИМИТЪР ТАЛЕВ"</b></div>
+            <div style="margin-top:4px"><b>ДО</b><br><b>ДИРЕКТОРА</b><br><b>НА ОУ „ДИМИТЪР ТАЛЕВ"</b><br>гр. Пловдив</div>
           </div>
           <div style="text-align:right;line-height:1.7">
             <div><b>РАЗРЕШАВАМ:</b></div>
             <div><b>ДИРЕКТОР</b></div>
             <div><b>НА ОУ „ДИМИТЪР ТАЛЕВ"</b></div>
+            <div>гр. Пловдив</div>
             <div><br>................................</div>
           </div>
         </div>
@@ -2639,11 +2649,12 @@ async function saveDocsAsDocx() {
       twoCol(`Вх. № ЧР-04-${zNum} / ${fmtD(zDate)} г.`, `РАЗРЕШАВАМ:`, false, true),
       twoCol(`ДО`, `ДИРЕКТОР`, false, true),
       twoCol(`ДИРЕКТОРА`, `НА ОУ „ДИМИТЪР ТАЛЕВ"`, false, true),
-      twoCol(`НА ОУ „ДИМИТЪР ТАЛЕВ"`, ``, false, false),
+      twoCol(`НА ОУ „ДИМИТЪР ТАЛЕВ"`, `гр. Пловдив`, false, false),
+      twoCol(`гр. Пловдив`, ``, false, false),
       p('', {after:20}),
       p(`З А Я В Л Е Н И Е`, {center:true, bold:true, size:szT, before:20, after:60}),
-      p(`от ${name}`, {after:20}),
-      p(`на длъжност: ${pos}`, {after:40}),
+      p(`от ${name}`, {after:20, bold:true}),
+      p(`на длъжност: ${pos}`, {after:40, bold:true}),
       p(`УВАЖАЕМА ГОСПОЖО ДИРЕКТОР,`, {bold:true, after:30}),
       p(`Моля да ми разрешите да ползвам ${zType}.`, {after:20}),
       p(`Отпускът е за / във връзка: ${zReason||'........................'}`, {italics:true, after:30}),
