@@ -2612,6 +2612,8 @@ function renderDocs(){
   const perHtml=periods.map(p=>`<p style="margin:2px 0">от ${fmtD(p.from)} г. до ${fmtD(p.to)} г. включително, ${p.days} дни</p>`).join('');
   const ostRows=rem.filter(y=>y.t>0).map(y=>`<tr><td>${y.y} г.:</td><td><b>${y.n} д.</b></td></tr>`).join('');
 
+  const startDatesHTML = periods.length ? periods.map(p=>fmtD(p.from)).join(', ') : '...........';
+
   document.getElementById('zapoved-out').innerHTML=`
     <div class="dt">З А П О В Е Д</div>
     <div class="dn">№ РД-14-${oNum}</div>
@@ -2622,12 +2624,12 @@ function renderDocs(){
     <p>на длъжност: ${pos} — ${zType}, както следва:</p>
     <p><b>${zReason||'Редовен отпуск на основание чл. 155, ал. 5 от КТ'}</b></p>
     ${perHtml}
-    <p>Ползването на отпуската да започне от ${periods.length?fmtD(periods[0].from):'...........'} г.</p>
+    <p>Ползването на отпуската да започне от ${startDatesHTML} г.</p>
     <p><b>Неизползван платен отпуск по години:</b></p>
     <table class="ot">${ostRows}<tr><td><b>Общо</b></td><td><b>${ostTotal} д.</b></td></tr></table>
-    <p class="note">Настоящата заповед се изготви в два еднообразни екземпляра, един за класьора "Заповеди на директора" и един за личното трудово досие на служителя.</p>
-    <p class="note">Специалист ТРЗ да доведе настоящата заповед до знанието на заинтересованото лице чрез изпращане на служебната му електронна поща.</p>
-    <div class="ps"><span><em>Изготвил: ${oIzg}</em></span><span><b>ИРИНА ЧОЛАКОВА</b><br><em>Директор на ОУ "Димитър Талев"</em></span></div>`;
+    <p style="font-size:12px;margin:4px 0">Настоящата заповед се изготви в два еднообразни екземпляра, един за класьора "Заповеди на директора" и един за личното трудово досие на служителя.</p>
+    <p style="font-size:12px;margin:4px 0">Специалист ТРЗ да доведе настоящата заповед до знанието на заинтересованото лице чрез изпращане на служебната му електронна поща.</p>
+    <div class="ps"><span><em>Изготвил: ${oIzg}</em></span><span style="text-align:right"><b>ИРИНА ЧОЛАКОВА</b><br>Директор на ОУ "Димитър Талев"</span></div>`;
 
   const perZHtml=periods.map(p=>`<p style="margin:2px 0">считано от ${fmtD(p.from)} г. до ${fmtD(p.to)} г. вкл., ${p.days} дни</p>`).join('');
   document.getElementById('zayav-out').innerHTML=`
@@ -2669,20 +2671,20 @@ function renderDocs(){
         <p style="text-align:center;font-weight:bold;font-size:14px;letter-spacing:0.12em;margin:2px 0 1px">З А П О В Е Д</p>
         <p style="text-align:center;font-size:12px;margin:0 0 1px"><b>№ РД-14-${oNum}</b></p>
         <p style="text-align:center;font-size:12px;margin:0 0 6px"><b>гр. Пловдив, ${fmtD(oDate)} г.</b></p>
-        <p style="margin:0 0 4px">На основание чл.173, ал.1 от Кодекса на труда и подадено заявление с вх.&nbsp;№&nbsp;ЧР-04-${zNum}/${fmtD(zDate)} г.</p>
+        <p style="margin:0 0 4px;font-size:12px">На основание чл.173, ал.1 от Кодекса на труда и подадено заявление с вх.&nbsp;№&nbsp;ЧР-04-${zNum}/${fmtD(zDate)} г.</p>
         <p style="font-weight:bold;font-size:13px;letter-spacing:0.07em;margin:4px 0 3px">Р А З Р Е Ш А В А М:</p>
-        <p style="margin:0 0 2px">на <b>${name}</b></p>
-        <p style="margin:0 0 2px">на длъжност: ${pos} — ${zType}, както следва:</p>
-        <p style="margin:0 0 3px"><b>${zReason||'Редовен отпуск на основание чл. 155, ал. 5 от КТ'}</b></p>
+        <p style="margin:0 0 2px;font-size:12px">на <b>${name}</b></p>
+        <p style="margin:0 0 2px;font-size:12px">на длъжност: ${pos} — ${zType}, както следва:</p>
+        <p style="margin:0 0 3px;font-size:12px"><b>${zReason||'Редовен отпуск на основание чл. 155, ал. 5 от КТ'}</b></p>
         ${perHtml}
-        <p style="margin:3px 0 2px">Ползването на отпуската да започне от ${periods.length?fmtD(periods[0].from):'...........'} г.</p>
-        <p style="margin:3px 0 1px"><b>Неизползван платен отпуск по години:</b></p>
-        <table style="border-collapse:collapse;font-size:11px;width:170px;margin-bottom:4px">${ostRows}<tr><td style="padding:1px 5px;border-bottom:0.5px solid #CCC;color:#555"><b>Общо</b></td><td style="padding:1px 5px;border-bottom:0.5px solid #CCC"><b>${ostTotal} д.</b></td></tr></table>
-        <p style="font-size:10.5px;color:#333;margin:2px 0">Настоящата заповед се изготви в два еднообразни екземпляра, един за класьора "Заповеди на директора" и един за личното трудово досие на служителя.</p>
-        <p style="font-size:10.5px;color:#333;margin:2px 0 5px">Специалист ТРЗ да доведе настоящата заповед до знанието на заинтересованото лице чрез изпращане на служебната му електронна поща.</p>
-        <div style="display:flex;justify-content:space-between;margin-top:5px;font-size:11.5px">
+        <p style="margin:3px 0 2px;font-size:12px">Ползването на отпуската да започне от ${startDatesHTML} г.</p>
+        <p style="margin:3px 0 1px;font-size:12px"><b>Неизползван платен отпуск по години:</b></p>
+        <table style="border-collapse:collapse;font-size:12px;width:170px;margin-bottom:4px">${ostRows}<tr><td style="padding:1px 5px;border-bottom:0.5px solid #CCC;color:#555"><b>Общо</b></td><td style="padding:1px 5px;border-bottom:0.5px solid #CCC"><b>${ostTotal} д.</b></td></tr></table>
+        <p style="font-size:9.5px;color:#333;margin:2px 0">Настоящата заповед се изготви в два еднообразни екземпляра, един за класьора "Заповеди на директора" и един за личното трудово досие на служителя.</p>
+        <p style="font-size:9.5px;color:#333;margin:2px 0 5px">Специалист ТРЗ да доведе настоящата заповед до знанието на заинтересованото лице чрез изпращане на служебната му електронна поща.</p>
+        <div style="display:flex;justify-content:space-between;margin-top:5px;font-size:10px">
           <span><em>Изготвил: ${oIzg}</em></span>
-          <span style="text-align:right"><b>ИРИНА ЧОЛАКОВА</b><br><em>Директор на ОУ "Димитър Талев"</em></span>
+          <span style="text-align:right"><b>ИРИНА ЧОЛАКОВА</b><br>Директор на ОУ "Димитър Талев"</span>
         </div>
       </div>`;
     } else {
@@ -2961,19 +2963,24 @@ async function saveDocsAsDocx() {
   });
 
   function zapovedBlock() {
+    // Начални дати на всички периоди
+    const startDates = periods.length
+      ? periods.map(pr => fmtD(pr.from)).join(', ')
+      : '...........';
+
     return [
       logoRow(),
       p(`З А П О В Е Д`, {center:true, bold:true, size:szT, after:20}),
       p(`№ РД-14-${oNum}`, {center:true, bold:true, after:20}),
       p(`гр. Пловдив, ${fmtD(oDate)} г.`, {center:true, bold:true, after:60}),
-      p(`На основание чл.173, ал.1 от Кодекса на труда и подадено заявление с вх. № ЧР-04-${zNum}/${fmtD(zDate)} г.`, {after:30}),
+      p(`На основание чл.173, ал.1 от Кодекса на труда и подадено заявление с вх. № ЧР-04-${zNum}/${fmtD(zDate)} г.`, {size:sz, after:30}),
       p(`Р А З Р Е Ш А В А М:`, {bold:true, size:22, after:30}),
-      p(`на ${name}`, {after:20}),
-      p(`на длъжност: ${pos} — ${zType}, както следва:`, {after:20}),
-      p(zReason || 'Редовен отпуск на основание чл. 155, ал. 5 от КТ', {bold:true, after:20}),
+      p(`на ${name}`, {bold:true, size:sz, after:20}),
+      p(`на длъжност: ${pos} — ${zType}, както следва:`, {size:sz, after:20}),
+      p(zReason || 'Редовен отпуск на основание чл. 155, ал. 5 от КТ', {bold:true, size:sz, after:20}),
       ...periodRows,
-      p(`Ползването на отпуската да започне от ${periods.length?fmtD(periods[0].from):'...........'} г.`, {before:20, after:20}),
-      p(`Неизползван платен отпуск по години:`, {bold:true, after:20}),
+      p(`Ползването на отпуската да започне от ${startDates} г.`, {size:sz, before:20, after:20}),
+      p(`Неизползван платен отпуск по години:`, {bold:true, size:sz, after:20}),
       ostTable,
       p(`Настоящата заповед се изготви в два еднообразни екземпляра, един за класьора "Заповеди на директора" и един за личното трудово досие на служителя.`, {size:szSm, before:40, after:20}),
       p(`Специалист ТРЗ да доведе настоящата заповед до знанието на заинтересованото лице чрез изпращане на служебната му електронна поща.`, {size:szSm, after:60}),
